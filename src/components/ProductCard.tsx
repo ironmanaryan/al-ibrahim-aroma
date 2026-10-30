@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import type { Product } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
-import BottleArt from "./BottleArt";
+import Image from "next/image";
+import { productImage } from "@/lib/productImage";
 import { ArrowRight, Bag, Close, Eye, Star } from "./icons";
 import { useCart } from "./CartProvider";
 import { useToast } from "./Toast";
@@ -49,9 +50,14 @@ export default function ProductCard({
     <article className="card" data-reveal>
       <div className="card__media" style={{ ["--tint" as string]: `${product.art.liquid}33` }}>
         {product.badge ? <span className="badge card__badge">{product.badge}</span> : null}
-        <Link href={`/product/${product.slug}`} aria-label={product.name} className="card__link">
-          <BottleArt {...product.art} className="card__bottle" title={product.name} />
-        </Link>
+        <Image
+          className="card__photo"
+          src={productImage(product.slug, product.family)}
+          alt={product.name}
+          fill
+          sizes="(max-width: 640px) 50vw, (max-width: 1080px) 33vw, 25vw"
+        />
+        <Link href={`/product/${product.slug}`} aria-label={product.name} className="card__link" />
         <div className="card__quick">
           {onQuickView ? (
             <button className="btn" onClick={() => onQuickView(product)}>
@@ -103,7 +109,12 @@ export function QuickView({
           <Close size={18} />
         </button>
         <div className="quickview__art">
-          <BottleArt {...product.art} title={product.name} />
+          <Image
+            src={productImage(product.slug, product.family)}
+            alt={product.name}
+            fill
+            sizes="(max-width: 860px) 100vw, 40vw"
+          />
         </div>
         <div className="quickview__body">
           <div className="card__meta">

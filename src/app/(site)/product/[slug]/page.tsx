@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProduct, getProducts, getSettings, getTestimonials } from "@/lib/content";
 import { formatINR } from "@/lib/utils";
-import BottleArt from "@/components/BottleArt";
 import ProductBuy from "@/components/ProductBuy";
 import ProductGallery from "@/components/ProductGallery";
 import ProductCard from "@/components/ProductCard";
@@ -246,9 +245,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <div style={{ display: "none" }}>
-        <BottleArt {...product.art} />
-      </div>
     </>
   );
 }

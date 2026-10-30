@@ -4,7 +4,8 @@ import { useMemo, useState } from "react";
 import type { Product, Settings } from "@/lib/types";
 import { formatINR, whatsappUrl } from "@/lib/utils";
 import { Check, Gift, Minus, Plus, Whatsapp } from "./icons";
-import BottleArt from "./BottleArt";
+import Image from "next/image";
+import { productImage } from "@/lib/productImage";
 
 const ADDONS = [
   { id: "engrave", label: "Engraved brass plate", price: 249 },
@@ -128,8 +129,8 @@ export default function GiftBuilder({
             chosen.map((p) => (
               <div className="builder__line" key={p.id}>
                 <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ width: 22, height: 30 }}>
-                    <BottleArt {...p.art} />
+                  <span className="builder__thumb">
+                    <Image src={productImage(p.slug, p.family)} alt="" fill sizes="30px" />
                   </span>
                   {p.name}
                   <button

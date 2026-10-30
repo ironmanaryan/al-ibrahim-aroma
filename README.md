@@ -48,16 +48,15 @@ Tagline: *The scent of a memory you can wear.*
 
 ## Typography
 
-Two self-hosted faces (both in `src/app/fonts/`, no runtime font requests):
+One self-hosted face, **Signika** (variable, 300–700, `src/app/fonts/signika-latin.woff2`), used for
+both display and interface text across the storefront and the admin panel. Headlines sit at weight
+500 with tight tracking; body copy at 16.5px with 1.7 leading.
 
-- **Cormorant Garamond** — display type, headlines and prices. A high-contrast old-style serif; italic
-  is used for the second line of the hero and for editorial emphasis.
-- **Jost** — interface and body copy. A geometric grotesque with a small optical weight, set at 16.5px
-  with 1.7 leading.
+The palette is black lacquer (`#0b0b0b`), crimson (`#8b0d1a`) and off-white (`#f5f2ed`).
 
-The palette is black lacquer (`#0b0b0b`), crimson (`#8b0d1a`) and off-white (`#f5f2ed`). Photography
-lives in `public/images/`; the storefront uses real photographs (Unsplash) rather than stock vector
-bottles wherever a picture earns its place.
+Photography lives in `public/images/`. Every product is paired with a real photograph through
+`src/lib/productImage.ts` (family-led: rose, oud, amber, musk), and the product page shows three
+frames from the same set. No vector flacons are used anywhere in the storefront or admin.
 
 ## Getting started
 

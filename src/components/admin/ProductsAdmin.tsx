@@ -6,7 +6,8 @@ import type { ArtVariant, CapStyle, Product } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
 import { adminApi } from "@/lib/adminClient";
 import { AdminModal, Field } from "./ui";
-import BottleArt from "../BottleArt";
+import Image from "next/image";
+import { productImage } from "@/lib/productImage";
 import { Edit, Plus, Search, Trash } from "../icons";
 import { useToast } from "../Toast";
 
@@ -162,8 +163,8 @@ export default function ProductsAdmin({ initial }: { initial: Product[] }) {
               <tr key={p.id}>
                 <td>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <span style={{ width: 30, height: 40, flex: "none" }}>
-                      <BottleArt {...p.art} />
+                    <span className="admin-thumb">
+                      <Image src={productImage(p.slug, p.family)} alt="" fill sizes="40px" />
                     </span>
                     <div className="admin-table__name">
                       <strong>{p.name}</strong>
@@ -485,12 +486,17 @@ export default function ProductsAdmin({ initial }: { initial: Product[] }) {
             </Field>
 
             <div className="span-2" style={{ display: "flex", alignItems: "center", gap: 20, paddingTop: 6 }}>
-              <div style={{ width: 64 }}>
-                <BottleArt {...draft.art} />
+              <div className="admin-thumb admin-thumb--lg">
+                <Image
+                  src={productImage(draft.slug ?? "", draft.family)}
+                  alt=""
+                  fill
+                  sizes="80px"
+                />
               </div>
               <span style={{ fontSize: 11, color: "var(--a-muted)", lineHeight: 1.6 }}>
-                Live preview of the generated bottle art. No photography needed — every flacon is drawn
-                from these four values.
+                The photograph this composition is paired with across the storefront. Replace it in
+                Media, then point the product at the new file.
               </span>
             </div>
           </div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getCollections, getFaqs, getJournal, getProducts, getSettings, getTestimonials } from "@/lib/content";
 import { formatDate, formatINR } from "@/lib/utils";
-import BottleArt from "@/components/BottleArt";
+import { productImage } from "@/lib/productImage";
 import Marquee from "@/components/Marquee";
 import ProductExplorer from "@/components/ProductExplorer";
 import ScentFinder from "@/components/ScentFinder";
@@ -303,6 +303,55 @@ export default async function HomePage() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------- signature */}
+      <section className="section signature">
+        <div className="container">
+          <div className="signature__grid">
+            <div className="signature__art">
+              <Image
+                src={productImage(signature.slug, signature.family)}
+                alt={signature.name}
+                fill
+                sizes="(max-width: 860px) 100vw, 45vw"
+              />
+            </div>
+            <div data-reveal>
+              <h2 className="display" style={{ margin: "0 0 18px" }}>
+                {signature.name}
+              </h2>
+              <p className="lede">{signature.story}</p>
+
+              <div className="notes" style={{ marginTop: 28 }}>
+                <div className="note-col">
+                  <h4>Top</h4>
+                  <ul>
+                    {signature.notes.top.map((n) => (
+                      <li key={n}>{n}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="note-col">
+                  <h4>Heart</h4>
+                  <ul>
+                    {signature.notes.heart.map((n) => (
+                      <li key={n}>{n}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="note-col">
+                  <h4>Base</h4>
+                  <ul>
+                    {signature.notes.base.map((n) => (
+                      <li key={n}>{n}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
               <div style={{ display: "flex", gap: 18, flexWrap: "wrap", alignItems: "center", marginTop: 26 }}>

@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Product } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
-import BottleArt from "./BottleArt";
+import Image from "next/image";
+import { productImage } from "@/lib/productImage";
 import { ArrowRight, Sparkles } from "./icons";
 
 const QUESTIONS = [
@@ -92,7 +93,12 @@ export default function ScentFinder({ products }: { products: Product[] }) {
                 {result.subtitle}. {result.longevity} on skin, {result.sillage.toLowerCase()} sillage.
               </p>
               <div className="finder__result-art">
-                <BottleArt {...result.art} />
+                <Image
+                  src={productImage(result.slug, result.family)}
+                  alt={result.name}
+                  fill
+                  sizes="180px"
+                />
               </div>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
                 <Link href={`/product/${result.slug}`} className="btn btn--gold">
@@ -147,11 +153,11 @@ export default function ScentFinder({ products }: { products: Product[] }) {
         </div>
 
         <div className="finder__aside">
-          <BottleArt
-            variant={result?.art.variant ?? "flacon"}
-            liquid={result?.art.liquid ?? "#b07b2e"}
-            label={result?.art.label ?? "#12100d"}
-            cap={result?.art.cap ?? "gold"}
+          <Image
+            src={productImage(result?.slug ?? "oud-al-malik", result?.family)}
+            alt={result?.name ?? "Al Ibrahim Aroma"}
+            fill
+            sizes="(max-width: 860px) 50vw, 300px"
           />
           <div className="finder__aside-note">
             <Sparkles size={13} />

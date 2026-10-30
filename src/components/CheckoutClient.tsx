@@ -5,7 +5,8 @@ import { useState } from "react";
 import type { Settings } from "@/lib/types";
 import { formatINR, whatsappUrl } from "@/lib/utils";
 import { useCart } from "./CartProvider";
-import BottleArt from "./BottleArt";
+import Image from "next/image";
+import { productImage } from "@/lib/productImage";
 import { ArrowRight, Check, Gift, Whatsapp } from "./icons";
 
 interface Details {
@@ -274,7 +275,7 @@ export default function CheckoutClient({ settings }: { settings: Settings }) {
           {lines.map((l) => (
             <div className="cart-line" key={l.key} style={{ gridTemplateColumns: "56px 1fr auto" }}>
               <div className="cart-line__art">
-                <BottleArt {...l.art} />
+                <Image src={productImage(l.slug)} alt={l.name} fill sizes="56px" />
               </div>
               <div>
                 <span className="cart-line__name">{l.name}</span>

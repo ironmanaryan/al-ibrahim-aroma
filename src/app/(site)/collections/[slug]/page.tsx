@@ -3,8 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCollection, getCollections, productsInCollection } from "@/lib/content";
 import ProductExplorer from "@/components/ProductExplorer";
-import BottleArt from "@/components/BottleArt";
-import type { ArtVariant } from "@/lib/types";
+import Image from "next/image";
+import { productImage } from "@/lib/productImage";
 
 export async function generateStaticParams() {
   const collections = await getCollections();
@@ -28,14 +28,6 @@ export async function generateMetadata({
       description: collection.description,
     },
   };
-}
-
-function variantFor(category?: string): ArtVariant {
-  if (category === "Attar") return "attar";
-  if (category === "Home") return "diffuser";
-  if (category === "Gifting") return "coffret";
-  if (category === "Discovery") return "vial";
-  return "flacon";
 }
 
 export default async function CollectionPage({
@@ -75,12 +67,12 @@ export default async function CollectionPage({
             </div>
             <div className="collection-hero__art" style={{ ["--accent" as string]: collection.accent }}>
               <div className="collection-hero__glow" aria-hidden="true" />
-              <BottleArt
-                variant={variantFor(collection.filter.category)}
-                liquid={products[0]?.art.liquid ?? collection.accent}
-                label={products[0]?.art.label ?? "#12100d"}
-                cap={products[0]?.art.cap ?? "gold"}
-                title={collection.title}
+              <Image
+                src={productImage(products[0]?.slug ?? collection.slug, products[0]?.family)}
+                alt={collection.title}
+                fill
+                priority
+                sizes="(max-width: 860px) 100vw, 45vw"
               />
             </div>
           </div>

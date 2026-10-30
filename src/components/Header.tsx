@@ -7,7 +7,8 @@ import type { Collection, Product, Settings } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
 import { useCart } from "./CartProvider";
 import { Bag, ChevronDown, Close, Menu, Search, Whatsapp } from "./icons";
-import BottleArt from "./BottleArt";
+import Image from "next/image";
+import { productImage } from "@/lib/productImage";
 
 interface HeaderProps {
   settings: Settings;
@@ -110,7 +111,12 @@ export default function Header({ settings, collections, products }: HeaderProps)
                   <div className="nav__panel-feature">
                     <span className="overline">House signature</span>
                     <div className="nav__panel-art">
-                      <BottleArt variant="flacon" liquid="#8a5a1f" label="#12100d" cap="gold" />
+                      <Image
+                        src={productImage("oud-al-malik", "Oud")}
+                        alt="Oud Al Malik"
+                        fill
+                        sizes="120px"
+                      />
                     </div>
                     <strong>Oud Al Malik</strong>
                     <span className="muted" style={{ fontSize: 11 }}>
@@ -237,7 +243,7 @@ export default function Header({ settings, collections, products }: HeaderProps)
             {results.map((p) => (
               <Link key={p.id} href={`/product/${p.slug}`} className="search-result">
                 <span className="search-result__art">
-                  <BottleArt {...p.art} />
+                  <Image src={productImage(p.slug, p.family)} alt="" fill sizes="40px" />
                 </span>
                 <span className="search-result__info">
                   <strong>{p.name}</strong>

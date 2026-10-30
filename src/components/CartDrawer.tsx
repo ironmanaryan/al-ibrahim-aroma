@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useCart } from "./CartProvider";
-import BottleArt from "./BottleArt";
+import Image from "next/image";
+import { productImage } from "@/lib/productImage";
 import { Bag, Close, Minus, Plus, Trash, Whatsapp } from "./icons";
 import { formatINR, whatsappUrl } from "@/lib/utils";
 import type { Settings } from "@/lib/types";
@@ -46,7 +47,7 @@ export default function CartDrawer({ settings }: { settings: Settings }) {
             lines.map((line) => (
               <div key={line.key} className="cart-line">
                 <div className="cart-line__art">
-                  <BottleArt {...line.art} />
+                  <Image src={productImage(line.slug)} alt={line.name} fill sizes="72px" />
                 </div>
                 <div>
                   <Link href={`/product/${line.slug}`} onClick={close} className="cart-line__name">
