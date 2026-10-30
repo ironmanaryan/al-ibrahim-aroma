@@ -15,6 +15,12 @@
   --a-blue: #35586e;
 }
 
+/* the storefront's grain and ambient glows belong to the dark site only */
+body:has(.admin) .grain,
+body:has(.admin) .ambient {
+  display: none;
+}
+
 .admin {
   display: grid;
   grid-template-columns: 250px 1fr;
