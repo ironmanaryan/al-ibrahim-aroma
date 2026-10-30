@@ -84,6 +84,18 @@ async function kvWrite(db: DB) {
 }
 
 function migrate(db: DB): DB {
+  if (
+    (db.seedVersion ?? 0) >= SEED_VERSION &&
+    db.products?.length &&
+    db.collections?.length &&
+    db.journal?.length &&
+    db.users?.length &&
+    db.settings &&
+    db.analytics &&
+    db.subscribers
+  ) {
+    return db;
+  }
   const seed = buildSeed(hashPassword);
   const merged: DB = {
     ...seed,

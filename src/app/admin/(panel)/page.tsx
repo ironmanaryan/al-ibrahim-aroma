@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getSession } from "@/lib/auth";
 import { readDB } from "@/lib/store";
 import { formatINR, timeAgo } from "@/lib/utils";
 import { AreaChart, BarList } from "@/components/admin/Charts";
@@ -9,6 +10,8 @@ export const dynamic = "force-dynamic";
 
 export default async function AdminDashboard() {
   const db = await readDB();
+  const session = await getSession();
+  const firstName = (session?.name ?? db.users[0]?.name ?? "Imran").split(" ")[0];
   const analytics = db.analytics;
 
   const dayEntries = Object.entries(analytics.byDay).sort(([a], [b]) => a.localeCompare(b));
@@ -46,7 +49,7 @@ export default async function AdminDashboard() {
     <>
       <div className="admin-page-head">
         <div>
-          <h1>Good evening, {db.users[0]?.name.split(" ")[0] ?? "Imran"}</h1>
+          <h1>Good evening, {firstName}</h1>
           <p>
             Here is the house today — visits, enquiries and the batches that need refilling. Everything
             updates as people browse.
