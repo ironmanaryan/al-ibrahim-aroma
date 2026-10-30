@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { updateDB } from "@/lib/store";
+import { pushActivity } from "@/lib/activity";
 import { uid } from "@/lib/utils";
 
 export const runtime = "nodejs";
@@ -14,6 +15,7 @@ export async function POST(req: NextRequest) {
     await updateDB((db) => {
       if (!db.subscribers.some((s) => s.email === clean)) {
         db.subscribers.unshift({ id: uid("sub"), email: clean, createdAt: new Date().toISOString() });
+        pushActivity(db, "newsletter", `New subscriber · ${clean}`);
       }
     });
     return Response.json({ ok: true });

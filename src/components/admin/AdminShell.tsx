@@ -6,7 +6,9 @@ import { useState } from "react";
 import type { SessionUser } from "@/lib/session";
 import {
   ArrowUpRight,
+  Bag,
   Box,
+  Clock,
   Close,
   FileText,
   Grid,
@@ -20,11 +22,13 @@ import {
 
 const LINKS = [
   { href: "/admin", label: "Dashboard", icon: Grid, exact: true },
+  { href: "/admin/orders", label: "Orders", icon: Bag },
   { href: "/admin/products", label: "Products", icon: Box },
   { href: "/admin/leads", label: "Leads & CRM", icon: Users },
   { href: "/admin/journal", label: "Journal", icon: FileText },
   { href: "/admin/testimonials", label: "Testimonials", icon: Quote },
   { href: "/admin/media", label: "Media", icon: ImageIcon },
+  { href: "/admin/activity", label: "Activity", icon: Clock },
   { href: "/admin/settings", label: "Settings", icon: Settings },
   { href: "/admin/users", label: "Users", icon: Users, adminOnly: true },
 ];
@@ -72,8 +76,8 @@ export default function AdminShell({
         <div className="admin-side__head">
           <Link href="/admin" className="admin-brand">
             <svg viewBox="0 0 40 40" fill="none" aria-hidden="true" width="30" height="30">
-              <circle cx="20" cy="20" r="19" stroke="#c8a96a" strokeOpacity="0.6" />
-              <path d="M20 7.5 27.5 32h-4.1l-1.5-5h-3.8l-1.5 5h-4.1L20 7.5Zm0 7.1-1.3 8.2h2.6L20 14.6Z" fill="#e7d3a3" />
+              <circle cx="20" cy="20" r="19" stroke="#e5c690" strokeOpacity="0.6" />
+              <path d="M20 7.5 27.5 32h-4.1l-1.5-5h-3.8l-1.5 5h-4.1L20 7.5Zm0 7.1-1.3 8.2h2.6L20 14.6Z" fill="#f0d8a8" />
             </svg>
             <span>
               <strong>Al Ibrahim</strong>

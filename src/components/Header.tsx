@@ -74,8 +74,8 @@ export default function Header({ settings, collections, products }: HeaderProps)
         <div className="container header__inner">
           <Link href="/" className="brand" aria-label={`${settings.brandName} home`}>
             <svg className="brand__mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-              <circle cx="20" cy="20" r="19" stroke="#c8a96a" strokeOpacity="0.5" />
-              <path d="M20 7.5 27.5 32h-4.1l-1.5-5h-3.8l-1.5 5h-4.1L20 7.5Zm0 7.1-1.3 8.2h2.6L20 14.6Z" fill="#e7d3a3" />
+              <circle cx="20" cy="20" r="19" stroke="#e5c690" strokeOpacity="0.5" />
+              <path d="M20 7.5 27.5 32h-4.1l-1.5-5h-3.8l-1.5 5h-4.1L20 7.5Zm0 7.1-1.3 8.2h2.6L20 14.6Z" fill="#f0d8a8" />
             </svg>
             <span className="brand__text">
               <span className="brand__name">Al Ibrahim</span>

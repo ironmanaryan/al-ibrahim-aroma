@@ -16,8 +16,8 @@ export default async function OpengraphImage() {
           justifyContent: "space-between",
           padding: "64px 72px",
           background:
-            "radial-gradient(900px 600px at 78% 12%, #3a2a12 0%, #14100b 45%, #080706 100%)",
-          color: "#f7f0e4",
+            "radial-gradient(900px 600px at 78% 12%, #20453c 0%, #183630 45%, #0e211c 100%)",
+          color: "#e3dac9",
           fontFamily: "serif",
         }}
       >
@@ -27,26 +27,26 @@ export default async function OpengraphImage() {
               width: 54,
               height: 54,
               borderRadius: 999,
-              border: "1px solid #c8a96a",
+              border: "1px solid #e5c690",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               fontSize: 30,
-              color: "#e7d3a3",
+              color: "#f0d8a8",
             }}
           >
             A
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ fontSize: 22, letterSpacing: 8, textTransform: "uppercase" }}>Al Ibrahim</div>
-            <div style={{ fontSize: 12, letterSpacing: 6, color: "#c8a96a", marginTop: 4 }}>
+            <div style={{ fontSize: 12, letterSpacing: 6, color: "#e5c690", marginTop: 4 }}>
               AROMA · LUCKNOW · 1974
             </div>
           </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ width: 90, height: 1, background: "#c8a96a", marginBottom: 28 }} />
+          <div style={{ width: 90, height: 1, background: "#e5c690", marginBottom: 28 }} />
           <div
             style={{
               display: "flex",
@@ -58,7 +58,7 @@ export default async function OpengraphImage() {
             }}
           >
             <span>The scent of a memory</span>
-            <span style={{ fontStyle: "italic", color: "#e7d3a3" }}>you can wear</span>
+            <span style={{ fontStyle: "italic", color: "#f0d8a8" }}>you can wear</span>
           </div>
           <div style={{ fontSize: 22, color: "#b9ab93", marginTop: 26, letterSpacing: 1 }}>
             Small-batch attars &amp; parfums · hand-blended in Lucknow
@@ -74,7 +74,7 @@ export default async function OpengraphImage() {
             paddingTop: 22,
             fontSize: 16,
             letterSpacing: 3,
-            color: "#c8a96a",
+            color: "#e5c690",
             textTransform: "uppercase",
           }}
         >

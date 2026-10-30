@@ -186,7 +186,7 @@ export default function UsersAdmin({
                   alignItems: "center",
                   gap: 12,
                   paddingBottom: 10,
-                  borderBottom: "1px solid #f0e8da",
+                  borderBottom: "1px solid var(--a-line)",
                 }}
               >
                 <span
@@ -196,7 +196,7 @@ export default function UsersAdmin({
                     borderRadius: "50%",
                     display: "grid",
                     placeItems: "center",
-                    background: "#f0e8da",
+                    background: "var(--a-line)",
                     fontSize: 11,
                     color: "var(--a-ink)",
                     flex: "none",

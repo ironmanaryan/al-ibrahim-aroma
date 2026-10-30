@@ -5,6 +5,14 @@ export type CapStyle = "gold" | "black" | "wood" | "ivory";
 export type Role = "admin" | "moderator";
 export type LeadStatus = "new" | "contacted" | "progress" | "closed";
 export type LeadType = "enquiry" | "order" | "callback" | "bulk" | "gifting";
+export type ActivityKind =
+  | "order"
+  | "lead"
+  | "newsletter"
+  | "whatsapp"
+  | "admin"
+  | "auth"
+  | "system";
 
 export interface ProductSize {
   ml: number;
@@ -159,6 +167,15 @@ export interface Subscriber {
   createdAt: string;
 }
 
+export interface ActivityEvent {
+  id: string;
+  kind: ActivityKind;
+  title: string;
+  detail?: string;
+  meta?: Record<string, string | number>;
+  at: string;
+}
+
 export interface Analytics {
   visits: number;
   byDay: Record<string, number>;
@@ -179,6 +196,7 @@ export interface DB {
   users: User[];
   media: MediaItem[];
   subscribers: Subscriber[];
+  activity: ActivityEvent[];
   settings: Settings;
   analytics: Analytics;
 }

@@ -201,7 +201,7 @@ export default function LeadsAdmin({ initial }: { initial: Lead[] }) {
                   lineHeight: 1.7,
                   color: "var(--a-muted)",
                   padding: "14px 0",
-                  borderBottom: "1px solid #f0e8da",
+                  borderBottom: "1px solid var(--a-line)",
                   whiteSpace: "pre-line",
                 }}
               >
@@ -219,7 +219,7 @@ export default function LeadsAdmin({ initial }: { initial: Lead[] }) {
                     <span>{formatINR(item.price * item.qty)}</span>
                   </div>
                 ))}
-                <div style={{ borderTop: "1px solid #f0e8da", paddingTop: 8, color: "var(--a-ink)" }}>
+                <div style={{ borderTop: "1px solid var(--a-line)", paddingTop: 8, color: "var(--a-ink)" }}>
                   <span>Order total</span>
                   <span>{formatINR(selected.total ?? 0)}</span>
                 </div>

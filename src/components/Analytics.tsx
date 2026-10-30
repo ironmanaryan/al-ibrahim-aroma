@@ -3,6 +3,15 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
+function beacon(payload: Record<string, unknown>) {
+  const body = JSON.stringify(payload);
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon("/api/track", new Blob([body], { type: "application/json" }));
+    return;
+  }
+  fetch("/api/track", { method: "POST", body, keepalive: true }).catch(() => {});
+}
+
 export default function Analytics() {
   const pathname = usePathname();
 
@@ -14,13 +23,19 @@ export default function Analytics() {
     } catch {
       /* ignore */
     }
-    const payload = JSON.stringify({ path: pathname });
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon("/api/track", new Blob([payload], { type: "application/json" }));
-      return;
-    }
-    fetch("/api/track", { method: "POST", body: payload, keepalive: true }).catch(() => {});
+    beacon({ path: pathname });
   }, [pathname]);
+
+  useEffect(() => {
+    function onClick(event: MouseEvent) {
+      const target = event.target as HTMLElement | null;
+      const link = target?.closest?.('a[href*="wa.me"]');
+      if (!link) return;
+      beacon({ event: "whatsapp", path: window.location.pathname });
+    }
+    document.addEventListener("click", onClick, { capture: true, passive: true });
+    return () => document.removeEventListener("click", onClick, { capture: true });
+  }, []);
 
   return null;
 }

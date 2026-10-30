@@ -67,6 +67,10 @@ const PAGES: Record<string, { title: string; kicker: string; body: string[] }> =
   },
 };
 
+export async function generateStaticParams() {
+  return Object.keys(PAGES).map((slug) => ({ slug }));
+}
+
 export async function generateMetadata({
   params,
 }: {

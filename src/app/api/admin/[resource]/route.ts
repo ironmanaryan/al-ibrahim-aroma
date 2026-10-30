@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getSession, hashPassword } from "@/lib/auth";
+import { pushActivity } from "@/lib/activity";
 import { readDB, updateDB } from "@/lib/store";
 import { readingTime, slugify, uid } from "@/lib/utils";
 import type { DB } from "@/lib/types";
@@ -19,6 +21,18 @@ const MAP = {
 } as const;
 
 type Resource = keyof typeof MAP;
+
+const NOUN: Record<Resource, string> = {
+  products: "product",
+  journal: "journal post",
+  testimonials: "testimonial",
+  team: "team member",
+  faqs: "FAQ",
+  leads: "lead",
+  media: "media item",
+  users: "user",
+  subscribers: "subscriber",
+};
 
 function isResource(value: string): value is Resource {
   return value in MAP;
@@ -122,7 +136,14 @@ export async function POST(
 
   await updateDB((db) => {
     listFor(db, resource).unshift(item);
+    const label = String(item.name ?? item.title ?? item.email ?? item.id);
+    pushActivity(db, "admin", `Created ${NOUN[resource]} · ${label}`, `By ${session.name}`, {
+      resource,
+      id: String(item.id),
+    });
   });
+
+  revalidatePath("/", "layout");
 
   return NextResponse.json({ ok: true, item }, { status: 201 });
 }

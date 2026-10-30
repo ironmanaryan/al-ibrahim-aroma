@@ -5,7 +5,7 @@ import { buildSeed } from "./seed";
 import type { DB } from "./types";
 
 const KEY = "alibrahim:db:v1";
-const SEED_VERSION = 3;
+const SEED_VERSION = 4;
 
 type Cache = { db: DB; at: number };
 const globalForStore = globalThis as unknown as { __aiaCache?: Cache };
@@ -92,7 +92,8 @@ function migrate(db: DB): DB {
     db.users?.length &&
     db.settings &&
     db.analytics &&
-    db.subscribers
+    db.subscribers &&
+    db.activity
   ) {
     return db;
   }
@@ -107,11 +108,22 @@ function migrate(db: DB): DB {
   if (!merged.collections?.length) merged.collections = seed.collections;
   if (!merged.users?.length) merged.users = seed.users;
   if (!merged.subscribers) merged.subscribers = [];
+  if (!merged.activity) merged.activity = seed.activity ?? [];
   if ((db.seedVersion ?? 0) < SEED_VERSION) {
     const have = new Set(merged.products.map((p) => p.slug));
     merged.products = [...merged.products, ...seed.products.filter((p) => !have.has(p.slug))];
     const havePosts = new Set(merged.journal.map((p) => p.slug));
     merged.journal = [...merged.journal, ...seed.journal.filter((p) => !havePosts.has(p.slug))];
+    const haveCollections = new Set(merged.collections.map((c) => c.slug));
+    merged.collections = [
+      ...merged.collections,
+      ...seed.collections.filter((c) => !haveCollections.has(c.slug)),
+    ];
+    const haveTestimonials = new Set(merged.testimonials.map((t) => t.id));
+    merged.testimonials = [
+      ...merged.testimonials,
+      ...seed.testimonials.filter((t) => !haveTestimonials.has(t.id)),
+    ];
     merged.seedVersion = SEED_VERSION;
   }
   return merged;

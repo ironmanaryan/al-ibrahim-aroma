@@ -9,7 +9,7 @@ import WhatsAppFab from "@/components/WhatsAppFab";
 import MotionProvider from "@/components/MotionProvider";
 import Analytics from "@/components/Analytics";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
   const [settings, collections, products] = await Promise.all([

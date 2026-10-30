@@ -25,8 +25,8 @@ export function AreaChart({
     <svg className="chart" viewBox={`0 0 ${w} ${h}`} role="img" aria-label="Visits over time">
       <defs>
         <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#c8a96a" stopOpacity="0.35" />
-          <stop offset="1" stopColor="#c8a96a" stopOpacity="0" />
+          <stop offset="0" stopColor="#e5c690" stopOpacity="0.35" />
+          <stop offset="1" stopColor="#e5c690" stopOpacity="0" />
         </linearGradient>
       </defs>
       <g className="chart-grid">

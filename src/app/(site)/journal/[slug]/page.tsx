@@ -5,6 +5,11 @@ import { getJournal, getPost } from "@/lib/content";
 import { formatDate } from "@/lib/utils";
 import { ArrowRight, Clock } from "@/components/icons";
 
+export async function generateStaticParams() {
+  const posts = await getJournal();
+  return posts.map((post) => ({ slug: post.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: {

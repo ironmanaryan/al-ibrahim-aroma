@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getSession, hashPassword } from "@/lib/auth";
+import { pushActivity } from "@/lib/activity";
 import { updateDB } from "@/lib/store";
 import { slugify } from "@/lib/utils";
 import type { DB } from "@/lib/types";
@@ -19,6 +21,18 @@ const MAP = {
 } as const;
 
 type Resource = keyof typeof MAP;
+
+const NOUN: Record<Resource, string> = {
+  products: "product",
+  journal: "journal post",
+  testimonials: "testimonial",
+  team: "team member",
+  faqs: "FAQ",
+  leads: "lead",
+  media: "media item",
+  users: "user",
+  subscribers: "subscriber",
+};
 
 function isResource(value: string): value is Resource {
   return value in MAP;
@@ -66,12 +80,19 @@ export async function PATCH(
     const list = listFor(db, resource);
     const index = list.findIndex((item) => item.id === id);
     if (index >= 0) {
-      list[index] = { ...list[index], ...patch };
-      updated = list[index];
+      const row = { ...list[index], ...patch };
+      list[index] = row;
+      updated = row;
+      const label = String(row.name ?? row.title ?? row.email ?? id);
+      pushActivity(db, "admin", `Updated ${NOUN[resource]} · ${label}`, `By ${session.name}`, {
+        resource,
+        id,
+      });
     }
   });
 
   if (!updated) return NextResponse.json({ error: "Not found" }, { status: 404 });
+  revalidatePath("/", "layout");
   return NextResponse.json({ ok: true, item: updated });
 }
 
@@ -92,11 +113,18 @@ export async function DELETE(
     const list = listFor(db, resource);
     const index = list.findIndex((item) => item.id === id);
     if (index >= 0) {
+      const row = list[index];
+      const label = String(row.name ?? row.title ?? row.email ?? id);
       list.splice(index, 1);
       removed = true;
+      pushActivity(db, "admin", `Deleted ${NOUN[resource]} · ${label}`, `By ${session.name}`, {
+        resource,
+        id,
+      });
     }
   });
 
   if (!removed) return NextResponse.json({ error: "Not found" }, { status: 404 });
+  revalidatePath("/", "layout");
   return NextResponse.json({ ok: true });
 }

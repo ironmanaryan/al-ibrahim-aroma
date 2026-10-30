@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readDB, updateDB } from "@/lib/store";
+import { pushActivity } from "@/lib/activity";
 import { createSession, sessionCookieOptions, verifyPassword } from "@/lib/auth";
 import { SESSION_COOKIE } from "@/lib/session";
 
@@ -40,6 +41,7 @@ export async function POST(req: NextRequest) {
     await updateDB((next) => {
       const found = next.users.find((u) => u.id === user.id);
       if (found) found.lastLogin = new Date().toISOString();
+      pushActivity(next, "auth", `${user.name} signed in`, user.email, { role: user.role });
     });
 
     const token = await createSession({

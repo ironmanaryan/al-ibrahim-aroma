@@ -4,7 +4,7 @@ import { readDB } from "@/lib/store";
 import { formatINR, timeAgo } from "@/lib/utils";
 import { AreaChart, BarList } from "@/components/admin/Charts";
 import { StatusPill } from "@/components/admin/ui";
-import { ArrowUpRight, Box, FileText, Plus, TrendingUp, Users } from "@/components/icons";
+import { ArrowUpRight, Bag, Box, FileText, Plus, TrendingUp, Users } from "@/components/icons";
 
 export const dynamic = "force-dynamic";
 
@@ -56,6 +56,9 @@ export default async function AdminDashboard() {
           </p>
         </div>
         <div className="admin-actions">
+          <Link href="/admin/orders" className="admin-btn admin-btn--ghost">
+            <Bag size={14} /> Orders
+          </Link>
           <Link href="/admin/products" className="admin-btn admin-btn--ghost">
             <Plus size={14} /> New product
           </Link>
@@ -180,6 +183,41 @@ export default async function AdminDashboard() {
             </tbody>
           </table>
         </div>
+      </div>
+
+      <div className="admin-card" style={{ marginBottom: 16 }}>
+        <div className="admin-card__head">
+          <h3>Live activity</h3>
+          <Link href="/admin/activity" className="admin-btn admin-btn--ghost admin-btn--sm">
+            All activity <ArrowUpRight size={12} />
+          </Link>
+        </div>
+        {db.activity.length === 0 ? (
+          <p style={{ fontSize: 11.5, color: "var(--a-muted)", margin: 0 }}>
+            No activity yet. Orders, enquiries, newsletter sign-ups and sign-ins will appear here.
+          </p>
+        ) : (
+          <div className="activity-feed activity-feed--compact">
+            {db.activity.slice(0, 8).map((event) => (
+              <div key={event.id} className="activity-item">
+                <span className="activity-dot activity-dot--sm" data-kind={event.kind} />
+                <span>
+                  <span className="activity-item__title">{event.title}</span>
+                  {event.detail ? (
+                    <span className="activity-item__detail">{event.detail}</span>
+                  ) : null}
+                </span>
+                <time
+                  className="activity-item__time"
+                  dateTime={event.at}
+                  title={new Date(event.at).toLocaleString("en-IN")}
+                >
+                  {timeAgo(event.at)}
+                </time>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="admin-grid admin-grid--3">

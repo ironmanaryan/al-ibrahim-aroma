@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
+import { pushActivity } from "@/lib/activity";
 import { readDB, updateDB } from "@/lib/store";
 import { uid } from "@/lib/utils";
 import type { MediaItem } from "@/lib/types";
@@ -41,6 +42,10 @@ export async function POST(req: NextRequest) {
     };
     await updateDB((db) => {
       db.media.unshift(item);
+      pushActivity(db, "admin", `Media uploaded · ${item.name}`, `By ${session.name}`, {
+        id: item.id,
+        size: item.size,
+      });
     });
     return NextResponse.json({ ok: true, item }, { status: 201 });
   } catch {

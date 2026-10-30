@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { updateDB } from "@/lib/store";
+import { pushActivity } from "@/lib/activity";
 import { uid } from "@/lib/utils";
 import type { Lead, LeadItem, LeadStatus, LeadType } from "@/lib/types";
 
@@ -40,6 +41,19 @@ export async function POST(req: NextRequest) {
       db.leads.unshift(lead);
       if (type === "order") db.analytics.events.orders += 1;
       else db.analytics.events.leads += 1;
+      pushActivity(
+        db,
+        type === "order" ? "order" : "lead",
+        `${type === "order" ? "New order" : "New enquiry"} · ${name}`,
+        type === "order" && items?.length
+          ? `${items.length} item${items.length === 1 ? "" : "s"} · ₹${(total ?? 0).toLocaleString("en-IN")}`
+          : lead.interest ?? lead.source,
+        {
+          ref: lead.id,
+          source: lead.source,
+          ...(total ? { value: total } : {}),
+        },
+      );
     });
 
     return Response.json({ id: lead.id, ok: true }, { status: 201 });

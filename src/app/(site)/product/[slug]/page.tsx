@@ -11,6 +11,11 @@ import Accordion from "@/components/Accordion";
 import { Stars } from "@/components/ProductCard";
 import { Gift, Leaf, Shield, Star, Truck } from "@/components/icons";
 
+export async function generateStaticParams() {
+  const products = await getProducts();
+  return products.map((product) => ({ slug: product.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: {

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getSession } from "@/lib/auth";
+import { pushActivity } from "@/lib/activity";
 import { updateDB } from "@/lib/store";
 import type { Settings } from "@/lib/types";
 
@@ -38,7 +40,12 @@ export async function PATCH(req: NextRequest) {
 
   await updateDB((db) => {
     db.settings = { ...db.settings, ...(patch as Partial<Settings>) };
+    pushActivity(db, "admin", "Store settings updated", `By ${session.name}`, {
+      fields: Object.keys(patch).join(", "),
+    });
   });
+
+  revalidatePath("/", "layout");
 
   return NextResponse.json({ ok: true });
 }

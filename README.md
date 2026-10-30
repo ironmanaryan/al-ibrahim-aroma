@@ -36,13 +36,23 @@ Tagline: *The scent of a memory you can wear.*
 
 **Admin (`/admin`)**
 
-- Dashboard: visits sparkline, pipeline bars, order value, batch health, latest enquiries.
+- Dashboard: visits sparkline, pipeline bars, order value, batch health, latest enquiries, live activity feed.
+- Orders: every checkout appears instantly with items, total, delivery details and status flow.
+- Activity log: orders, enquiries, newsletter sign-ups, WhatsApp taps, sign-ins and every admin change.
 - Products CMS: create/edit/delete, sizes, notes, stock, flags, live bottle preview.
 - Journal CMS with markdown-lite body, drafts, publish dates.
 - Testimonials CMS, media library (drag & drop upload, copy URL), house settings.
 - Lead CRM: tabs by status (New / Contacted / In Progress / Closed), notes, WhatsApp/call/email actions.
 - Users & RBAC: `admin` (full control) and `moderator` (content + CRM, no deletion/settings).
 - JWT session in an httpOnly cookie, middleware-guarded `/admin/*`.
+
+## Typography
+
+The house typeface is **TT Drugs**. It is a commercial TypeType font, so it is not bundled in this
+repository. The site is wired for it: drop the licensed files into `public/fonts/` as
+`TTDrugs-Regular.woff2` and `TTDrugs-Bold.woff2`, and the whole storefront and admin switch over on the
+next request. Until then it falls back to **Bricolage Grotesque** (self-hosted in `src/app/fonts/`), a
+close geometric grotesque. All headings are set in bold (700) in both surfaces.
 
 ## Getting started
 
