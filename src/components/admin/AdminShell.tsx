@@ -76,12 +76,12 @@ export default function AdminShell({
         <div className="admin-side__head">
           <Link href="/admin" className="admin-brand">
             <svg viewBox="0 0 40 40" fill="none" aria-hidden="true" width="30" height="30">
-              <circle cx="20" cy="20" r="19" stroke="#e5c690" strokeOpacity="0.6" />
-              <path d="M20 7.5 27.5 32h-4.1l-1.5-5h-3.8l-1.5 5h-4.1L20 7.5Zm0 7.1-1.3 8.2h2.6L20 14.6Z" fill="#f0d8a8" />
+              <circle cx="20" cy="20" r="19" stroke="#f5f2ed" strokeOpacity="0.6" />
+              <path d="M20 7.5 27.5 32h-4.1l-1.5-5h-3.8l-1.5 5h-4.1L20 7.5Zm0 7.1-1.3 8.2h2.6L20 14.6Z" fill="#f5f2ed" />
             </svg>
             <span>
               <strong>Al Ibrahim</strong>
-              <small>Control room</small>
+              <small>Atelier desk</small>
             </span>
           </Link>
           <button className="admin-side__close" onClick={() => setOpen(false)} aria-label="Close menu">

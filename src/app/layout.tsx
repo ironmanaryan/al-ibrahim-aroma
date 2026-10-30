@@ -2,11 +2,21 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const brand = localFont({
-  src: [{ path: "./fonts/bricolage-grotesque-latin.woff2", weight: "200 800", style: "normal" }],
-  variable: "--font-brand",
+const serif = localFont({
+  src: [
+    { path: "./fonts/cormorant-garamond-latin.woff2", weight: "300 700", style: "normal" },
+    { path: "./fonts/cormorant-garamond-italic-latin.woff2", weight: "300 700", style: "italic" },
+  ],
+  variable: "--font-serif",
   display: "swap",
-  fallback: ["Bricolage Grotesque", "system-ui", "sans-serif"],
+  fallback: ["Cormorant Garamond", "Georgia", "serif"],
+});
+
+const grotesk = localFont({
+  src: [{ path: "./fonts/jost-latin.woff2", weight: "300 700", style: "normal" }],
+  variable: "--font-grotesk",
+  display: "swap",
+  fallback: ["Jost", "system-ui", "sans-serif"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://al-ibrahim-aroma.vercel.app";
@@ -57,14 +67,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#183630",
+  themeColor: "#0b0b0b",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={brand.variable}>
+    <html lang="en" className={`${serif.variable} ${grotesk.variable}`}>
       <body>
         <div className="grain" aria-hidden="true" />
         <div className="ambient" aria-hidden="true" />

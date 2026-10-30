@@ -49,10 +49,9 @@ export default async function AdminDashboard() {
     <>
       <div className="admin-page-head">
         <div>
-          <h1>Good evening, {firstName}</h1>
+          <h1>{firstName}, the house today</h1>
           <p>
-            Here is the house today — visits, enquiries and the batches that need refilling. Everything
-            updates as people browse.
+            Traffic, enquiries and the batches running low. Everything below updates as people browse.
           </p>
         </div>
         <div className="admin-actions">
@@ -112,7 +111,7 @@ export default async function AdminDashboard() {
           <AreaChart points={points} />
           <div className="chart-legend" style={{ marginTop: 10 }}>
             <span>
-              <i style={{ background: "#a9853f" }} /> Visits
+              <i style={{ background: "#8b0d1a" }} /> Visits
             </span>
             <span>Peak {Math.max(...points.map((p) => p.value), 0).toLocaleString("en-IN")}</span>
             <span>{analytics.visits.toLocaleString("en-IN")} this month</span>

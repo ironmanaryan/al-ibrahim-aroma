@@ -25,8 +25,8 @@ export function AreaChart({
     <svg className="chart" viewBox={`0 0 ${w} ${h}`} role="img" aria-label="Visits over time">
       <defs>
         <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#e5c690" stopOpacity="0.35" />
-          <stop offset="1" stopColor="#e5c690" stopOpacity="0" />
+          <stop offset="0" stopColor="#f5f2ed" stopOpacity="0.35" />
+          <stop offset="1" stopColor="#f5f2ed" stopOpacity="0" />
         </linearGradient>
       </defs>
       <g className="chart-grid">
@@ -41,9 +41,9 @@ export function AreaChart({
         ))}
       </g>
       <path d={area} fill="url(#areaFill)" />
-      <path d={line} fill="none" stroke="#a9853f" strokeWidth="2" strokeLinecap="round" />
+      <path d={line} fill="none" stroke="#8b0d1a" strokeWidth="2" strokeLinecap="round" />
       {xy.map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r="2.6" fill="#fffdf9" stroke="#a9853f" strokeWidth="1.6" />
+        <circle key={i} cx={x} cy={y} r="2.6" fill="#fffdf9" stroke="#8b0d1a" strokeWidth="1.6" />
       ))}
       {points.map((p, i) =>
         i % Math.ceil(points.length / 7) === 0 || i === points.length - 1 ? (

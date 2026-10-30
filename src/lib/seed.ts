@@ -1245,10 +1245,10 @@ export function buildSeed(passwordHash: (pw: string) => string): DB {
         "Hand-wrapped in khadi, sealed in wax",
         "Ships worldwide from Lucknow",
       ],
-      heroKicker: "Attar house · Lucknow · since 1974",
-      heroTitle: "The scent of a memory|you can wear",
+      heroKicker: "Lucknow · since 1974",
+      heroTitle: "Attar and parfum,|blended by hand",
       heroSub:
-        "Small-batch attars and parfums, distilled the slow way in Lucknow. Aged oud, Taif rose, and the smell of the first rain on baked clay.",
+        "Small-batch attars and parfums from Lucknow: aged oud, Taif rose, and the smell of the first rain on baked clay. Alcohol-free, blended by hand since 1974.",
       freeShipping: 999,
       currency: "INR",
     },

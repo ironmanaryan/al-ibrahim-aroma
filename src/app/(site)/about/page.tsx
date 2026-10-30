@@ -54,7 +54,7 @@ export default async function AboutPage() {
           </div>
           <span className="eyebrow">The house · est. 1974</span>
           <h1 className="page-hero__title">
-            Three generations, <em className="serif-italic">one obsession</em>
+            Three generations, one obsession
           </h1>
           <p className="lede" style={{ marginTop: 20 }}>
             We are a small fragrance house in Lucknow, making attars and parfums the way they were made
@@ -69,13 +69,13 @@ export default async function AboutPage() {
           <div className="split">
             <div className="split__media" data-scale-in>
               <Image
-                src="/images/vintage-bottles.jpg"
-                alt="A row of glass attar bottles catching warm light"
+                src="/images/atelier-gold.jpg"
+                alt="An amber attar flacon resting on linen in low morning light"
                 width={900}
                 height={1100}
                 sizes="(max-width: 860px) 100vw, 45vw"
               />
-              <span className="split__caption">The archive shelf · 1989 to now</span>
+              <span className="split__caption">An amber attar, in morning light</span>
             </div>
             <div className="prose" data-reveal>
               <p>

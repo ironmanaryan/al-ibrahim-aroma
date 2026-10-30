@@ -44,11 +44,11 @@ export default function AdminLoginPage() {
               <stop offset="1" stopColor="#ffffff" stopOpacity="0.18" />
             </linearGradient>
             <linearGradient id="ll" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stopColor="#c9973f" />
+              <stop offset="0" stopColor="#8b0d1a" />
               <stop offset="1" stopColor="#5d3a12" />
             </linearGradient>
           </defs>
-          <rect x="130" y="44" width="60" height="82" rx="8" fill="#c8a96a" opacity="0.85" />
+          <rect x="130" y="44" width="60" height="82" rx="8" fill="#cfc8bb" opacity="0.85" />
           <rect x="138" y="118" width="44" height="46" rx="5" fill="url(#lg)" />
           <path
             d="M96 170h128c10 0 18 8 18 18v130c0 22-18 40-40 40h-84c-22 0-40-18-40-40V188c0-10 8-18 18-18Z"
@@ -66,18 +66,18 @@ export default function AdminLoginPage() {
       <div className="login__panel">
         <div className="login__brand">
           <svg viewBox="0 0 40 40" fill="none" width="34" height="34" aria-hidden="true">
-            <circle cx="20" cy="20" r="19" stroke="#c8a96a" strokeOpacity="0.6" />
-            <path d="M20 7.5 27.5 32h-4.1l-1.5-5h-3.8l-1.5 5h-4.1L20 7.5Zm0 7.1-1.3 8.2h2.6L20 14.6Z" fill="#e7d3a3" />
+            <circle cx="20" cy="20" r="19" stroke="#cfc8bb" strokeOpacity="0.6" />
+            <path d="M20 7.5 27.5 32h-4.1l-1.5-5h-3.8l-1.5 5h-4.1L20 7.5Zm0 7.1-1.3 8.2h2.6L20 14.6Z" fill="#f5f2ed" />
           </svg>
           <div>
             <strong>Al Ibrahim Aroma</strong>
-            <small>Control room</small>
+            <small>Atelier desk</small>
           </div>
         </div>
 
-        <h1>Welcome back</h1>
+        <h1>Sign in to the house</h1>
         <p className="login__sub">
-          Sign in to manage the storefront, the journal and every enquiry that comes in.
+          Manage the storefront, the journal and every enquiry that reaches the shop.
         </p>
 
         <form onSubmit={submit} className="login__form">
@@ -121,8 +121,8 @@ export default function AdminLoginPage() {
           </p>
         </div>
         <p className="login__note">
-          Protected by JWT sessions, hashed passwords and role-based access. Change these credentials in
-          Settings → Users before going live.
+          Sessions are signed and role-based. Change these credentials in Settings, then Users, before
+          the shop goes live.
         </p>
       </div>
     </div>

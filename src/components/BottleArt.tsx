@@ -26,7 +26,7 @@ function shade(hex: string, amount: number): string {
 }
 
 const capColors: Record<CapStyle, { a: string; b: string; c: string }> = {
-  gold: { a: "#f0dba8", b: "#c8a96a", c: "#7a5f2c" },
+  gold: { a: "#f0dba8", b: "#cfc8bb", c: "#7a5f2c" },
   black: { a: "#4a4640", b: "#191714", c: "#050505" },
   wood: { a: "#a97c4c", b: "#6d4a28", c: "#33200f" },
   ivory: { a: "#fbf4e6", b: "#ddcdb2", c: "#a38f6f" },
@@ -133,12 +133,12 @@ export default function BottleArt({
           </g>
           {/* label */}
           <rect x="112" y="256" width="96" height="86" rx="3" fill={`url(#label-${uid})`} />
-          <rect x="117" y="261" width="86" height="76" rx="2" fill="none" stroke={isDarkLabel ? "#c8a96a" : "#12100d"} strokeOpacity="0.45" />
+          <rect x="117" y="261" width="86" height="76" rx="2" fill="none" stroke={isDarkLabel ? "#cfc8bb" : "#12100d"} strokeOpacity="0.45" />
           <text
             x="160"
             y="286"
             textAnchor="middle"
-            fill={isDarkLabel ? "#e7d3a3" : "#12100d"}
+            fill={isDarkLabel ? "#f5f2ed" : "#12100d"}
             style={{ fontFamily: "var(--font-display), serif", fontSize: "11px", letterSpacing: "2.2px" }}
           >
             AL IBRAHIM
@@ -147,17 +147,17 @@ export default function BottleArt({
             x="160"
             y="303"
             textAnchor="middle"
-            fill={isDarkLabel ? "#e7d3a3" : "#12100d"}
+            fill={isDarkLabel ? "#f5f2ed" : "#12100d"}
             style={{ fontFamily: "var(--font-display), serif", fontSize: "7px", letterSpacing: "3.4px", opacity: 0.85 }}
           >
             AROMA · LUCKNOW
           </text>
-          <line x1="136" y1="313" x2="184" y2="313" stroke={isDarkLabel ? "#c8a96a" : "#12100d"} strokeOpacity="0.4" />
+          <line x1="136" y1="313" x2="184" y2="313" stroke={isDarkLabel ? "#cfc8bb" : "#12100d"} strokeOpacity="0.4" />
           <text
             x="160"
             y="330"
             textAnchor="middle"
-            fill={isDarkLabel ? "#e7d3a3" : "#12100d"}
+            fill={isDarkLabel ? "#f5f2ed" : "#12100d"}
             style={{ fontFamily: "var(--font-sans), sans-serif", fontSize: "6px", letterSpacing: "2px", opacity: 0.8 }}
           >
             EAU DE PARFUM
@@ -192,22 +192,22 @@ export default function BottleArt({
           <path d="M104 200h18v144h-8c-16-10-24-28-24-48v-82c0-8 6-14 14-14Z" fill="#fff" opacity="0.14" />
           <path d="M216 200h-16v144h6c16-10 24-28 24-48v-82c0-8-6-14-14-14Z" fill="#fff" opacity="0.09" />
           <rect x="128" y="262" width="64" height="58" rx="2" fill={`url(#label-${uid})`} />
-          <rect x="132" y="266" width="56" height="50" rx="1" fill="none" stroke={isDarkLabel ? "#c8a96a" : "#12100d"} strokeOpacity="0.45" />
+          <rect x="132" y="266" width="56" height="50" rx="1" fill="none" stroke={isDarkLabel ? "#cfc8bb" : "#12100d"} strokeOpacity="0.45" />
           <text
             x="160"
             y="286"
             textAnchor="middle"
-            fill={isDarkLabel ? "#e7d3a3" : "#12100d"}
+            fill={isDarkLabel ? "#f5f2ed" : "#12100d"}
             style={{ fontFamily: "var(--font-display), serif", fontSize: "9px", letterSpacing: "1.8px" }}
           >
             AL IBRAHIM
           </text>
-          <line x1="142" y1="294" x2="178" y2="294" stroke={isDarkLabel ? "#c8a96a" : "#12100d"} strokeOpacity="0.4" />
+          <line x1="142" y1="294" x2="178" y2="294" stroke={isDarkLabel ? "#cfc8bb" : "#12100d"} strokeOpacity="0.4" />
           <text
             x="160"
             y="306"
             textAnchor="middle"
-            fill={isDarkLabel ? "#e7d3a3" : "#12100d"}
+            fill={isDarkLabel ? "#f5f2ed" : "#12100d"}
             style={{ fontFamily: "var(--font-sans), sans-serif", fontSize: "5.5px", letterSpacing: "1.6px", opacity: 0.85 }}
           >
             ATTAR · 12 ML
@@ -243,17 +243,17 @@ export default function BottleArt({
             x="160"
             y="290"
             textAnchor="middle"
-            fill={isDarkLabel ? "#e7d3a3" : "#12100d"}
+            fill={isDarkLabel ? "#f5f2ed" : "#12100d"}
             style={{ fontFamily: "var(--font-display), serif", fontSize: "9px", letterSpacing: "1.6px" }}
           >
             AL IBRAHIM
           </text>
-          <line x1="140" y1="299" x2="180" y2="299" stroke={isDarkLabel ? "#c8a96a" : "#12100d"} strokeOpacity="0.4" />
+          <line x1="140" y1="299" x2="180" y2="299" stroke={isDarkLabel ? "#cfc8bb" : "#12100d"} strokeOpacity="0.4" />
           <text
             x="160"
             y="312"
             textAnchor="middle"
-            fill={isDarkLabel ? "#e7d3a3" : "#12100d"}
+            fill={isDarkLabel ? "#f5f2ed" : "#12100d"}
             style={{ fontFamily: "var(--font-sans), sans-serif", fontSize: "5.5px", letterSpacing: "1.5px", opacity: 0.85 }}
           >
             HOME FRAGRANCE
@@ -264,13 +264,13 @@ export default function BottleArt({
 
       {variant === "coffret" && (
         <g>
-          <rect x="62" y="220" width="196" height="150" rx="6" fill={`url(#label-${uid})`} stroke="#c8a96a" strokeOpacity="0.5" />
-          <rect x="72" y="230" width="176" height="130" rx="3" fill="none" stroke="#c8a96a" strokeOpacity="0.35" />
+          <rect x="62" y="220" width="196" height="150" rx="6" fill={`url(#label-${uid})`} stroke="#cfc8bb" strokeOpacity="0.5" />
+          <rect x="72" y="230" width="176" height="130" rx="3" fill="none" stroke="#cfc8bb" strokeOpacity="0.35" />
           <text
             x="160"
             y="272"
             textAnchor="middle"
-            fill="#e7d3a3"
+            fill="#f5f2ed"
             style={{ fontFamily: "var(--font-display), serif", fontSize: "15px", letterSpacing: "3.5px" }}
           >
             AL IBRAHIM
@@ -279,17 +279,17 @@ export default function BottleArt({
             x="160"
             y="290"
             textAnchor="middle"
-            fill="#c8a96a"
+            fill="#cfc8bb"
             style={{ fontFamily: "var(--font-sans), sans-serif", fontSize: "6px", letterSpacing: "3px" }}
           >
             AROMA · LUCKNOW
           </text>
-          <path d="M118 306h84" stroke="#c8a96a" strokeOpacity="0.5" />
+          <path d="M118 306h84" stroke="#cfc8bb" strokeOpacity="0.5" />
           <text
             x="160"
             y="326"
             textAnchor="middle"
-            fill="#e7d3a3"
+            fill="#f5f2ed"
             style={{ fontFamily: "var(--font-display), serif", fontSize: "8px", letterSpacing: "2px", opacity: 0.9 }}
           >
             THE GILDED COFFRET
@@ -321,17 +321,17 @@ export default function BottleArt({
             x="160"
             y="256"
             textAnchor="middle"
-            fill={isDarkLabel ? "#e7d3a3" : "#12100d"}
+            fill={isDarkLabel ? "#f5f2ed" : "#12100d"}
             style={{ fontFamily: "var(--font-display), serif", fontSize: "8.5px", letterSpacing: "1.4px" }}
           >
             AL IBRAHIM
           </text>
-          <line x1="142" y1="264" x2="178" y2="264" stroke={isDarkLabel ? "#c8a96a" : "#12100d"} strokeOpacity="0.4" />
+          <line x1="142" y1="264" x2="178" y2="264" stroke={isDarkLabel ? "#cfc8bb" : "#12100d"} strokeOpacity="0.4" />
           <text
             x="160"
             y="277"
             textAnchor="middle"
-            fill={isDarkLabel ? "#e7d3a3" : "#12100d"}
+            fill={isDarkLabel ? "#f5f2ed" : "#12100d"}
             style={{ fontFamily: "var(--font-sans), sans-serif", fontSize: "5px", letterSpacing: "1.2px", opacity: 0.85 }}
           >
             DISCOVERY · 2 ML

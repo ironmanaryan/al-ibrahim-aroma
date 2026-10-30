@@ -122,7 +122,7 @@ export default function Footer({
             <Link href="/policies/shipping">Shipping</Link>
             <Link href="/policies/returns">Returns</Link>
           </div>
-          <span className="muted-2">Hand-blended in Lucknow, India · {settings.hours}</span>
+          <span className="muted-2">Hand-blended in Lucknow, India · Photography via Unsplash</span>
         </div>
       </div>
     </footer>

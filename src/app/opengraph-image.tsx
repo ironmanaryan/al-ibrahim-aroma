@@ -15,9 +15,8 @@ export default async function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "64px 72px",
-          background:
-            "radial-gradient(900px 600px at 78% 12%, #20453c 0%, #183630 45%, #0e211c 100%)",
-          color: "#e3dac9",
+          background: "#0b0b0b",
+          color: "#f5f2ed",
           fontFamily: "serif",
         }}
       >
@@ -27,40 +26,40 @@ export default async function OpengraphImage() {
               width: 54,
               height: 54,
               borderRadius: 999,
-              border: "1px solid #e5c690",
+              border: "1px solid rgba(245,242,237,0.35)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               fontSize: 30,
-              color: "#f0d8a8",
+              color: "#f5f2ed",
             }}
           >
             A
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ fontSize: 22, letterSpacing: 8, textTransform: "uppercase" }}>Al Ibrahim</div>
-            <div style={{ fontSize: 12, letterSpacing: 6, color: "#e5c690", marginTop: 4 }}>
+            <div style={{ fontSize: 12, letterSpacing: 6, color: "#a8a29a", marginTop: 4 }}>
               AROMA · LUCKNOW · 1974
             </div>
           </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ width: 90, height: 1, background: "#e5c690", marginBottom: 28 }} />
+          <div style={{ width: 90, height: 4, background: "#8b0d1a", marginBottom: 28 }} />
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              fontSize: 78,
-              lineHeight: 1.02,
+              fontSize: 82,
+              lineHeight: 1.0,
               letterSpacing: -1,
-              maxWidth: 880,
+              maxWidth: 900,
             }}
           >
-            <span>The scent of a memory</span>
-            <span style={{ fontStyle: "italic", color: "#f0d8a8" }}>you can wear</span>
+            <span>Attar and parfum,</span>
+            <span style={{ fontStyle: "italic" }}>blended by hand</span>
           </div>
-          <div style={{ fontSize: 22, color: "#b9ab93", marginTop: 26, letterSpacing: 1 }}>
+          <div style={{ fontSize: 22, color: "#a8a29a", marginTop: 26, letterSpacing: 1 }}>
             Small-batch attars &amp; parfums · hand-blended in Lucknow
           </div>
         </div>
@@ -70,11 +69,11 @@ export default async function OpengraphImage() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            borderTop: "1px solid rgba(200,169,106,0.35)",
+            borderTop: "1px solid rgba(245,242,237,0.22)",
             paddingTop: 22,
             fontSize: 16,
             letterSpacing: 3,
-            color: "#e5c690",
+            color: "#f5f2ed",
             textTransform: "uppercase",
           }}
         >

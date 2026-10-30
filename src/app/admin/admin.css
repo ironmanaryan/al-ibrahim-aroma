@@ -3,16 +3,16 @@
    ============================================================ */
 
 :root {
-  --a-bg: #ede5d5;
-  --a-card: #fcf8ef;
-  --a-ink: #183630;
-  --a-muted: #5b665f;
-  --a-line: #ddd1bd;
-  --a-gold: #a2763a;
-  --a-gold-soft: #e5c690;
-  --a-green: #2f6b4f;
-  --a-red: #9c4a44;
-  --a-blue: #35586e;
+  --a-bg: #f5f2ed;
+  --a-card: #ffffff;
+  --a-ink: #0b0b0b;
+  --a-muted: #6b6560;
+  --a-line: #e3ded4;
+  --a-gold: #8b0d1a;
+  --a-gold-soft: #d9a7aa;
+  --a-green: #2a6b4a;
+  --a-red: #8b0d1a;
+  --a-blue: #44546a;
 }
 
 /* the storefront's grain and ambient glows belong to the dark site only */
@@ -36,10 +36,10 @@ body:has(.admin) .ambient {
   height: 100svh;
   display: flex;
   flex-direction: column;
-  background: #0d211c;
-  color: #e3dac9;
+  background: #0b0b0b;
+  color: #f5f2ed;
   padding: 22px 16px;
-  border-right: 1px solid rgba(229, 198, 144, 0.16);
+  border-right: 1px solid rgba(217, 167, 170, 0.16);
   z-index: 30;
 }
 
@@ -48,7 +48,7 @@ body:has(.admin) .ambient {
   align-items: center;
   justify-content: space-between;
   padding: 0 6px 22px;
-  border-bottom: 1px solid rgba(227, 218, 201, 0.09);
+  border-bottom: 1px solid rgba(245, 242, 237, 0.09);
   margin-bottom: 16px;
 }
 
@@ -74,12 +74,12 @@ body:has(.admin) .ambient {
   font-size: 7.5px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: rgba(227, 218, 201, 0.45);
+  color: rgba(245, 242, 237, 0.45);
 }
 
 .admin-side__close {
   display: none;
-  color: rgba(227, 218, 201, 0.7);
+  color: rgba(245, 242, 237, 0.7);
 }
 
 .admin-nav {
@@ -96,26 +96,26 @@ body:has(.admin) .ambient {
   border-radius: 3px;
   font-size: 12px;
   letter-spacing: 0.03em;
-  color: rgba(227, 218, 201, 0.6);
+  color: rgba(245, 242, 237, 0.6);
   transition: background 0.25s, color 0.25s;
   border-left: 2px solid transparent;
 }
 
 .admin-nav__link:hover {
-  color: #e3dac9;
-  background: rgba(227, 218, 201, 0.04);
+  color: #f5f2ed;
+  background: rgba(245, 242, 237, 0.04);
 }
 
 .admin-nav__link[data-active="true"] {
-  color: #e5c690;
-  background: rgba(229, 198, 144, 0.1);
+  color: #d9a7aa;
+  background: rgba(217, 167, 170, 0.1);
   border-left-color: var(--gold);
 }
 
 .admin-side__foot {
   margin-top: auto;
   padding-top: 16px;
-  border-top: 1px solid rgba(227, 218, 201, 0.09);
+  border-top: 1px solid rgba(245, 242, 237, 0.09);
   display: grid;
   gap: 10px;
 }
@@ -125,7 +125,7 @@ body:has(.admin) .ambient {
   align-items: center;
   gap: 10px;
   padding: 8px;
-  border: 1px solid rgba(227, 218, 201, 0.1);
+  border: 1px solid rgba(245, 242, 237, 0.1);
   border-radius: 3px;
 }
 
@@ -135,8 +135,8 @@ body:has(.admin) .ambient {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: rgba(229, 198, 144, 0.16);
-  color: #e5c690;
+  background: rgba(217, 167, 170, 0.16);
+  color: #d9a7aa;
   font-family: var(--font-display);
   font-size: 15px;
   flex: none;
@@ -161,16 +161,16 @@ body:has(.admin) .ambient {
   font-size: 9px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(227, 218, 201, 0.4);
+  color: rgba(245, 242, 237, 0.4);
 }
 
 .admin-user button {
-  color: rgba(227, 218, 201, 0.5);
+  color: rgba(245, 242, 237, 0.5);
   padding: 4px;
 }
 
 .admin-user button:hover {
-  color: #e5c690;
+  color: #d9a7aa;
 }
 
 .admin-main {
@@ -294,9 +294,9 @@ body:has(.admin) .ambient {
 }
 
 .admin-btn--gold {
-  background: #183630;
-  border-color: #183630;
-  color: #e3dac9;
+  background: #0b0b0b;
+  border-color: #0b0b0b;
+  color: #f5f2ed;
 }
 
 .admin-btn--gold:hover {
@@ -475,14 +475,14 @@ body:has(.admin) .ambient {
 
 .bar-track {
   height: 8px;
-  background: #e6dcc9;
+  background: #eae5dd;
   border-radius: 20px;
   overflow: hidden;
 }
 
 .bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #e5c690, #a2763a);
+  background: linear-gradient(90deg, #d9a7aa, #8b0d1a);
   border-radius: 20px;
 }
 
@@ -515,12 +515,12 @@ body:has(.admin) .ambient {
   color: var(--a-muted);
   border-bottom: 1px solid var(--a-line);
   white-space: nowrap;
-  background: #f7f1e6;
+  background: #f7f4ef;
 }
 
 .admin-table td {
   padding: 12px 16px;
-  border-bottom: 1px solid #e9dfcd;
+  border-bottom: 1px solid #eae5dd;
   vertical-align: middle;
 }
 
@@ -529,7 +529,7 @@ body:has(.admin) .ambient {
 }
 
 .admin-table tr:hover td {
-  background: #faf4e8;
+  background: #fbf9f5;
 }
 
 .admin-table__name {
@@ -576,14 +576,14 @@ body:has(.admin) .ambient {
 
 .status-pill[data-status="contacted"] {
   color: var(--a-gold);
-  background: rgba(162, 118, 58, 0.1);
-  border-color: rgba(162, 118, 58, 0.25);
+  background: rgba(139, 13, 26, 0.1);
+  border-color: rgba(139, 13, 26, 0.25);
 }
 
 .status-pill[data-status="progress"] {
-  color: #6d5324;
-  background: rgba(229, 198, 144, 0.18);
-  border-color: rgba(229, 198, 144, 0.4);
+  color: #6b0a13;
+  background: rgba(217, 167, 170, 0.18);
+  border-color: rgba(217, 167, 170, 0.4);
 }
 
 .status-pill[data-status="closed"] {
@@ -641,9 +641,9 @@ body:has(.admin) .ambient {
 }
 
 .admin-tab[data-active="true"] {
-  background: #183630;
-  border-color: #183630;
-  color: #e3dac9;
+  background: #0b0b0b;
+  border-color: #0b0b0b;
+  color: #f5f2ed;
 }
 
 /* forms */
@@ -654,7 +654,7 @@ body:has(.admin) .ambient {
 .admin .input,
 .admin .select,
 .admin .textarea {
-  background: #fcf8ef;
+  background: #ffffff;
   border-color: var(--a-line);
   color: var(--a-ink);
   min-height: 40px;
@@ -768,12 +768,12 @@ body:has(.admin) .ambient {
 }
 
 .lead-row:hover {
-  border-color: #d3c3a8;
+  border-color: #dad4ca;
 }
 
 .lead-row[data-active="true"] {
   border-color: var(--a-gold);
-  box-shadow: 0 0 0 1px rgba(162, 118, 58, 0.25);
+  box-shadow: 0 0 0 1px rgba(139, 13, 26, 0.25);
 }
 
 .lead-row__name {
@@ -812,7 +812,7 @@ body:has(.admin) .ambient {
   justify-content: space-between;
   gap: 12px;
   padding: 9px 0;
-  border-bottom: 1px solid #e9dfcd;
+  border-bottom: 1px solid #eae5dd;
   font-size: 11.5px;
   color: var(--a-muted);
 }
@@ -853,7 +853,7 @@ body:has(.admin) .ambient {
 
 .media-card__img {
   aspect-ratio: 4 / 3;
-  background: #e6dcc9;
+  background: #eae5dd;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -890,7 +890,7 @@ body:has(.admin) .ambient {
 }
 
 .dropzone {
-  border: 1px dashed #cbbda4;
+  border: 1px dashed #dad4ca;
   border-radius: 4px;
   padding: 30px;
   display: grid;
@@ -898,14 +898,14 @@ body:has(.admin) .ambient {
   gap: 8px;
   text-align: center;
   color: var(--a-muted);
-  background: #f7f1e6;
+  background: #f7f4ef;
   cursor: pointer;
   transition: border-color 0.25s, background 0.25s;
 }
 
 .dropzone:hover {
   border-color: var(--a-gold);
-  background: #faf4e8;
+  background: #fbf9f5;
 }
 
 /* login */
@@ -913,8 +913,8 @@ body:has(.admin) .ambient {
   min-height: 100svh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: #0e211c;
-  color: #e3dac9;
+  background: #0b0b0b;
+  color: #f5f2ed;
 }
 
 .login__art {
@@ -922,8 +922,8 @@ body:has(.admin) .ambient {
   display: grid;
   place-items: center;
   overflow: hidden;
-  border-right: 1px solid rgba(229, 198, 144, 0.18);
-  background: radial-gradient(60% 60% at 50% 40%, #183630, #0e211c 70%);
+  border-right: 1px solid rgba(217, 167, 170, 0.18);
+  background: radial-gradient(60% 60% at 50% 40%, #0b0b0b, #0b0b0b 70%);
 }
 
 .login__glow {
@@ -931,7 +931,7 @@ body:has(.admin) .ambient {
   width: 60%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(229, 198, 144, 0.3), transparent 65%);
+  background: radial-gradient(circle, rgba(217, 167, 170, 0.3), transparent 65%);
   filter: blur(20px);
 }
 
@@ -975,7 +975,7 @@ body:has(.admin) .ambient {
   font-size: 8px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(227, 218, 201, 0.4);
+  color: rgba(245, 242, 237, 0.4);
 }
 
 .login h1 {
@@ -985,7 +985,7 @@ body:has(.admin) .ambient {
 
 .login__sub {
   font-size: 13px;
-  color: rgba(227, 218, 201, 0.55);
+  color: rgba(245, 242, 237, 0.55);
   line-height: 1.7;
   margin-bottom: 28px;
   max-width: 40ch;
@@ -1001,31 +1001,31 @@ body:has(.admin) .ambient {
   min-height: 46px;
   background: var(--gold);
   border-color: var(--gold);
-  color: #183630;
+  color: #0b0b0b;
 }
 
 .login__form .admin-btn:hover {
   background: var(--gold-2);
   border-color: var(--gold-2);
-  color: #183630;
+  color: #0b0b0b;
 }
 
 .login__hint {
   margin-top: 30px;
   padding: 14px 16px;
-  border: 1px solid rgba(229, 198, 144, 0.25);
-  background: rgba(229, 198, 144, 0.05);
+  border: 1px solid rgba(217, 167, 170, 0.25);
+  background: rgba(217, 167, 170, 0.05);
 }
 
 .login__hint p {
   margin-top: 6px;
   font-size: 11px;
   line-height: 1.8;
-  color: rgba(227, 218, 201, 0.55);
+  color: rgba(245, 242, 237, 0.55);
 }
 
 .login__hint strong {
-  color: #e5c690;
+  color: #d9a7aa;
   font-weight: 400;
 }
 
@@ -1033,7 +1033,7 @@ body:has(.admin) .ambient {
   margin-top: 16px;
   font-size: 10px;
   line-height: 1.7;
-  color: rgba(227, 218, 201, 0.3);
+  color: rgba(245, 242, 237, 0.3);
 }
 
 .admin-scrim {
@@ -1194,12 +1194,12 @@ body:has(.admin) .ambient {
 }
 
 .admin-table tr[data-open="true"] td {
-  background: #f7f1e6;
+  background: #f7f4ef;
   border-bottom-color: transparent;
 }
 
 .order-detail-row td {
-  background: #f7f1e6 !important;
+  background: #f7f4ef !important;
   padding: 0 16px 18px !important;
 }
 
@@ -1271,7 +1271,7 @@ body:has(.admin) .ambient {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: rgba(162, 118, 58, 0.1);
+  background: rgba(139, 13, 26, 0.1);
   color: var(--a-gold);
   flex: none;
 }
@@ -1285,7 +1285,7 @@ body:has(.admin) .ambient {
 }
 
 .activity-dot[data-kind="order"] {
-  background: rgba(162, 118, 58, 0.14);
+  background: rgba(139, 13, 26, 0.14);
   color: var(--a-gold);
 }
 
@@ -1310,7 +1310,7 @@ body:has(.admin) .ambient {
 }
 
 .activity-dot[data-kind="auth"] {
-  background: rgba(162, 118, 58, 0.1);
+  background: rgba(139, 13, 26, 0.1);
   color: var(--a-gold);
 }
 
@@ -1356,7 +1356,7 @@ body:has(.admin) .ambient {
   border: 1px solid var(--a-line);
   border-radius: 999px;
   color: var(--a-muted);
-  background: #f7f1e6;
+  background: #f7f4ef;
 }
 
 @media (max-width: 900px) {
