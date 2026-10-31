@@ -9376,7 +9376,8 @@ html[data-theme="light"] .pdp__stage svg {
 }
 
 html[data-theme="light"] .pdp__stage-label {
-  color: rgba(23, 19, 16, 0.55);
+  background: rgba(255, 253, 249, 0.84);
+  color: rgba(23, 19, 16, 0.7);
 }
 
 html[data-theme="light"] .pdp__thumb {
@@ -9690,4 +9691,57 @@ html[data-theme="light"] .footer__pay span {
   .marquee__track {
     animation: none !important;
   }
+}
+
+/* --- light polish: page entries & surfaces ------------------- */
+html[data-theme="light"] .page-hero {
+  border-bottom-color: rgba(23, 19, 16, 0.1);
+  background:
+    radial-gradient(60% 90% at 85% -10%, rgba(139, 13, 26, 0.06), transparent 60%),
+    linear-gradient(180deg, #f8f4ee, rgba(243, 239, 232, 0));
+}
+
+html[data-theme="light"] .team-card {
+  background: linear-gradient(180deg, #fffdf9, rgba(255, 253, 249, 0.55));
+}
+
+html[data-theme="light"] .map-card__map {
+  background:
+    radial-gradient(60% 60% at 50% 45%, rgba(139, 13, 26, 0.07), transparent 70%),
+    repeating-linear-gradient(0deg, transparent 0 45px, rgba(23, 19, 16, 0.06) 45px 46px),
+    repeating-linear-gradient(90deg, transparent 0 45px, rgba(23, 19, 16, 0.06) 45px 46px),
+    #f3eee6;
+}
+
+html[data-theme="light"] .map-card__pin {
+  box-shadow: 0 0 0 8px rgba(139, 13, 26, 0.1), 0 0 22px rgba(139, 13, 26, 0.4);
+}
+
+html[data-theme="light"] .chip[data-active="true"] {
+  background: linear-gradient(120deg, #5d0810, #8b0d1a 46%, #a3111f);
+  border-color: #5d0810;
+  color: #fbf7f1;
+}
+
+html[data-theme="light"] .finder__aside-note {
+  background: rgba(255, 253, 249, 0.92);
+  color: rgba(23, 19, 16, 0.72);
+}
+
+html[data-theme="light"] .track-field input {
+  background: #fffdf9;
+  border-color: rgba(23, 19, 16, 0.14);
+  color: #171310;
+}
+
+html[data-theme="light"] .track-field input::placeholder {
+  color: rgba(23, 19, 16, 0.4);
+}
+
+html[data-theme="light"] .track-field input:focus {
+  border-color: #8b0d1a;
+}
+
+html[data-theme="light"] .prose {
+  color: rgba(23, 19, 16, 0.72);
 }

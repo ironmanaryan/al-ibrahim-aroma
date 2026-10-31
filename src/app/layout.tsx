@@ -64,17 +64,18 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0B0B0B",
+  themeColor: "#F3EFE8",
   width: "device-width",
   initialScale: 1,
 };
 
-const themeScript = `(function(){try{if(localStorage.getItem("aia_theme")==="light"){document.documentElement.dataset.theme="light";var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content","#F3EFE8");}}catch(e){}})();`;
+const themeScript = `(function(){var t;try{t=localStorage.getItem("aia_theme")}catch(e){}if(t==="dark"){document.documentElement.dataset.theme="dark";var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content","#0B0B0B")}})();`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
+      data-theme="light"
       className={`${syne.variable} ${jakarta.variable}`}
       suppressHydrationWarning
     >

@@ -9,7 +9,7 @@ const STORAGE_KEY = "aia_theme";
 const META_COLORS: Record<Theme, string> = { dark: "#0B0B0B", light: "#F3EFE8" };
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
     setTheme(document.documentElement.dataset.theme === "light" ? "light" : "dark");
