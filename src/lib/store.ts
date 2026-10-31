@@ -2,10 +2,11 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { hashPassword } from "./auth";
 import { buildSeed } from "./seed";
+import { remapPaletteV5 } from "./palette-migrate";
 import type { DB } from "./types";
 
 const KEY = "alibrahim:db:v1";
-const SEED_VERSION = 4;
+const SEED_VERSION = 6;
 
 type Cache = { db: DB; at: number };
 const globalForStore = globalThis as unknown as { __aiaCache?: Cache };
@@ -109,6 +110,7 @@ function migrate(db: DB): DB {
   if (!merged.users?.length) merged.users = seed.users;
   if (!merged.subscribers) merged.subscribers = [];
   if (!merged.activity) merged.activity = seed.activity ?? [];
+  if ((db.seedVersion ?? 0) < 6) remapPaletteV5(merged);
   if ((db.seedVersion ?? 0) < SEED_VERSION) {
     const have = new Set(merged.products.map((p) => p.slug));
     merged.products = [...merged.products, ...seed.products.filter((p) => !have.has(p.slug))];

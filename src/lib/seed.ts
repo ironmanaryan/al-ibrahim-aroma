@@ -35,7 +35,7 @@ const products: Product[] = [
     featured: true,
     bestseller: true,
     published: true,
-    art: { variant: "flacon", liquid: "#8a5a1f", label: "#12100d", cap: "gold" },
+    art: { variant: "flacon", liquid: "#8b0d1a", label: "#0b0b0b", cap: "gold" },
     createdAt: now,
   },
   {
@@ -69,7 +69,7 @@ const products: Product[] = [
     featured: true,
     bestseller: true,
     published: true,
-    art: { variant: "attar", liquid: "#9c4a44", label: "#efe3cd", cap: "gold" },
+    art: { variant: "attar", liquid: "#a3111f", label: "#f5f2ed", cap: "gold" },
     createdAt: now,
   },
   {
@@ -103,7 +103,7 @@ const products: Product[] = [
     featured: true,
     bestseller: true,
     published: true,
-    art: { variant: "attar", liquid: "#6d6a4a", label: "#1e2b23", cap: "wood" },
+    art: { variant: "attar", liquid: "#8f8577", label: "#0b0b0b", cap: "wood" },
     createdAt: now,
   },
   {
@@ -136,7 +136,7 @@ const products: Product[] = [
     featured: true,
     bestseller: false,
     published: true,
-    art: { variant: "flacon", liquid: "#b07b2e", label: "#efe3cd", cap: "black" },
+    art: { variant: "flacon", liquid: "#8b0d1a", label: "#f5f2ed", cap: "black" },
     createdAt: now,
   },
   {
@@ -167,7 +167,7 @@ const products: Product[] = [
     featured: false,
     bestseller: true,
     published: true,
-    art: { variant: "attar", liquid: "#d9c9a3", label: "#efe3cd", cap: "ivory" },
+    art: { variant: "attar", liquid: "#d9a7aa", label: "#f5f2ed", cap: "ivory" },
     createdAt: now,
   },
   {
@@ -200,7 +200,7 @@ const products: Product[] = [
     featured: true,
     bestseller: false,
     published: true,
-    art: { variant: "flacon", liquid: "#6b7a52", label: "#12100d", cap: "wood" },
+    art: { variant: "flacon", liquid: "#8f8577", label: "#0b0b0b", cap: "wood" },
     createdAt: now,
   },
   {
@@ -234,7 +234,7 @@ const products: Product[] = [
     featured: false,
     bestseller: false,
     published: true,
-    art: { variant: "flacon", liquid: "#7a3d1b", label: "#4a1f1a", cap: "gold" },
+    art: { variant: "flacon", liquid: "#6d0a14", label: "#5d0810", cap: "gold" },
     createdAt: now,
   },
   {
@@ -267,7 +267,7 @@ const products: Product[] = [
     featured: false,
     bestseller: true,
     published: true,
-    art: { variant: "attar", liquid: "#c9a24a", label: "#12100d", cap: "gold" },
+    art: { variant: "attar", liquid: "#a3111f", label: "#0b0b0b", cap: "gold" },
     createdAt: now,
   },
   {
@@ -297,7 +297,7 @@ const products: Product[] = [
     featured: true,
     bestseller: false,
     published: true,
-    art: { variant: "diffuser", liquid: "#3b2a1c", label: "#efe3cd", cap: "wood" },
+    art: { variant: "diffuser", liquid: "#0b0b0b", label: "#f5f2ed", cap: "wood" },
     createdAt: now,
   },
   {
@@ -327,7 +327,7 @@ const products: Product[] = [
     featured: false,
     bestseller: true,
     published: true,
-    art: { variant: "diffuser", liquid: "#7d6b4f", label: "#1e2b23", cap: "black" },
+    art: { variant: "diffuser", liquid: "#8f8577", label: "#0b0b0b", cap: "black" },
     createdAt: now,
   },
   {
@@ -359,7 +359,7 @@ const products: Product[] = [
     featured: true,
     bestseller: false,
     published: true,
-    art: { variant: "coffret", liquid: "#b07b2e", label: "#12100d", cap: "gold" },
+    art: { variant: "coffret", liquid: "#8b0d1a", label: "#0b0b0b", cap: "gold" },
     createdAt: now,
   },
   {
@@ -390,7 +390,7 @@ const products: Product[] = [
     featured: true,
     bestseller: true,
     published: true,
-    art: { variant: "vial", liquid: "#c9a24a", label: "#efe3cd", cap: "gold" },
+    art: { variant: "vial", liquid: "#a3111f", label: "#f5f2ed", cap: "gold" },
     createdAt: now,
   },
   {
@@ -423,7 +423,7 @@ const products: Product[] = [
     featured: false,
     bestseller: false,
     published: true,
-    art: { variant: "flacon", liquid: "#e0d3b8", label: "#efe3cd", cap: "ivory" },
+    art: { variant: "flacon", liquid: "#f5f2ed", label: "#f5f2ed", cap: "ivory" },
     createdAt: now,
   },
   {
@@ -456,7 +456,7 @@ const products: Product[] = [
     featured: true,
     bestseller: false,
     published: true,
-    art: { variant: "flacon", liquid: "#6a2f4a", label: "#12100d", cap: "black" },
+    art: { variant: "flacon", liquid: "#6d0a14", label: "#0b0b0b", cap: "black" },
     createdAt: now,
   },
   {
@@ -490,7 +490,7 @@ const products: Product[] = [
     featured: true,
     bestseller: false,
     published: true,
-    art: { variant: "vial", liquid: "#5b3a18", label: "#12100d", cap: "gold" },
+    art: { variant: "vial", liquid: "#8b0d1a", label: "#0b0b0b", cap: "gold" },
     createdAt: now,
   },
   {
@@ -524,7 +524,7 @@ const products: Product[] = [
     featured: true,
     bestseller: false,
     published: true,
-    art: { variant: "vial", liquid: "#4a2c14", label: "#12100d", cap: "wood" },
+    art: { variant: "vial", liquid: "#5d0810", label: "#0b0b0b", cap: "wood" },
     createdAt: now,
   },
   {
@@ -558,7 +558,7 @@ const products: Product[] = [
     featured: true,
     bestseller: false,
     published: true,
-    art: { variant: "vial", liquid: "#3f4a2a", label: "#12100d", cap: "gold" },
+    art: { variant: "vial", liquid: "#6b655c", label: "#0b0b0b", cap: "gold" },
     createdAt: now,
   },
   {
@@ -592,7 +592,7 @@ const products: Product[] = [
     featured: false,
     bestseller: false,
     published: true,
-    art: { variant: "vial", liquid: "#5a2a12", label: "#12100d", cap: "black" },
+    art: { variant: "vial", liquid: "#6d0a14", label: "#0b0b0b", cap: "black" },
     createdAt: now,
   },
   {
@@ -626,7 +626,7 @@ const products: Product[] = [
     featured: false,
     bestseller: false,
     published: true,
-    art: { variant: "vial", liquid: "#44523a", label: "#12100d", cap: "ivory" },
+    art: { variant: "vial", liquid: "#8f8577", label: "#0b0b0b", cap: "ivory" },
     createdAt: now,
   },
   {
@@ -657,7 +657,7 @@ const products: Product[] = [
     featured: true,
     bestseller: true,
     published: true,
-    art: { variant: "coffret", liquid: "#6b4a22", label: "#12100d", cap: "gold" },
+    art: { variant: "coffret", liquid: "#8b0d1a", label: "#0b0b0b", cap: "gold" },
     createdAt: now,
   },
 ];
@@ -671,7 +671,7 @@ const collections: Collection[] = [
     description:
       "Aged agarwood, resin and smoke. The scents of Awadh — built for winter evenings, weddings, and rooms that hold their warmth.",
     filter: { family: "Oud" },
-    accent: "#8a5a1f",
+    accent: "#8b0d1a",
     featured: true,
     order: 1,
   },
@@ -683,7 +683,7 @@ const collections: Collection[] = [
     description:
       "Traditional deg-and-bhapka attars, pressed from flowers and earth. A single drop on the pulse point lasts the day.",
     filter: { category: "Attar" },
-    accent: "#9c4a44",
+    accent: "#a3111f",
     featured: true,
     order: 2,
   },
@@ -695,7 +695,7 @@ const collections: Collection[] = [
     description:
       "Our modern parfums — higher concentration, longer trail, and the same insistence on natural absolutes.",
     filter: { category: "Perfume" },
-    accent: "#b07b2e",
+    accent: "#8b0d1a",
     featured: true,
     order: 3,
   },
@@ -707,7 +707,7 @@ const collections: Collection[] = [
     description:
       "Bakhoor, room mists and diffuser oils for the quiet hours. Small rituals that change how a house feels.",
     filter: { category: "Home" },
-    accent: "#3b2a1c",
+    accent: "#0b0b0b",
     featured: true,
     order: 4,
   },
@@ -719,7 +719,7 @@ const collections: Collection[] = [
     description:
       "Coffrets, discovery sets and hand-written notes. For weddings, Eid, and the people who already have everything.",
     filter: { category: "Gifting" },
-    accent: "#e5c690",
+    accent: "#f5f2ed",
     featured: true,
     order: 5,
   },
@@ -731,7 +731,7 @@ const collections: Collection[] = [
     description:
       "Pure agarwood oils from Cambodia, Assam, Laos, Burma and Malaysia. Undiluted, unblended, and bottled in small lots so you can taste the difference between forests.",
     filter: { family: "Oud" },
-    accent: "#5b3a18",
+    accent: "#8b0d1a",
     featured: true,
     order: 6,
   },
@@ -1107,7 +1107,7 @@ export function buildSeed(passwordHash: (pw: string) => string): DB {
 
   return {
     version: 1,
-    seedVersion: 4,
+    seedVersion: 6,
     products,
     collections,
     journal,

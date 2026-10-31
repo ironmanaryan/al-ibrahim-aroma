@@ -18,7 +18,7 @@ Tagline: *The scent of a memory you can wear.*
 | Motion     | GSAP 3 + IntersectionObserver, CSS keyframes                  |
 | Auth       | `jose` JWT in an httpOnly cookie + scrypt password hashing    |
 | Storage    | JSON document store — Upstash Redis REST, else local file     |
-| Artwork    | Parameterised inline SVG flacons (no runtime image hotlinks)  |
+| Artwork    | Licensed stock photography, one unique frame per product      |
 
 ## Features
 
@@ -27,7 +27,7 @@ Tagline: *The scent of a memory you can wear.*
 - Cinematic hero with layered gradients, drifting aroma notes, parallax and GSAP reveals.
 - Filterable showcase grid (`/collections`) with category/family chips, price + intensity filters and a
   full-screen quick-view lightbox.
-- Product pages with generated bottle art, notes pyramid, intensity meters, size selector, sticky buy box.
+- Product pages with editorial photography, notes pyramid, intensity meters, size selector, sticky buy box.
 - Scent finder quiz and gifting builder with a live price estimate.
 - Cart drawer → checkout that reserves an order in the CRM (no payment gateway; WhatsApp follow-up).
 - Floating WhatsApp button (single tap, no pop-ups), announcement ribbon, newsletter capture.
@@ -39,7 +39,7 @@ Tagline: *The scent of a memory you can wear.*
 - Dashboard: visits sparkline, pipeline bars, order value, batch health, latest enquiries, live activity feed.
 - Orders: every checkout appears instantly with items, total, delivery details and status flow.
 - Activity log: orders, enquiries, newsletter sign-ups, WhatsApp taps, sign-ins and every admin change.
-- Products CMS: create/edit/delete, sizes, notes, stock, flags, live bottle preview.
+- Products CMS: create/edit/delete, sizes, notes, stock, flags, live image preview.
 - Journal CMS with markdown-lite body, drafts, publish dates.
 - Testimonials CMS, media library (drag & drop upload, copy URL), house settings.
 - Lead CRM: tabs by status (New / Contacted / In Progress / Closed), notes, WhatsApp/call/email actions.
@@ -54,9 +54,10 @@ both display and interface text across the storefront and the admin panel. Headl
 
 The palette is black lacquer (`#0b0b0b`), crimson (`#8b0d1a`) and off-white (`#f5f2ed`).
 
-Photography lives in `public/images/`. Every product is paired with a real photograph through
-`src/lib/productImage.ts` (family-led: rose, oud, amber, musk), and the product page shows three
-frames from the same set. No vector flacons are used anywhere in the storefront or admin.
+Photography lives in `public/images/products/` — one unique photograph per product, plus a second
+"material" frame and two shared atelier shots for the product gallery. `src/lib/productImage.ts` maps
+every slug to its own file, so no image is reused between products. No vector flacons are used
+anywhere in the storefront or admin.
 
 ## Getting started
 

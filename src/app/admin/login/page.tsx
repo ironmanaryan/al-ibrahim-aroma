@@ -45,7 +45,7 @@ export default function AdminLoginPage() {
             </linearGradient>
             <linearGradient id="ll" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stopColor="#8b0d1a" />
-              <stop offset="1" stopColor="#5d3a12" />
+              <stop offset="1" stopColor="#41060e" />
             </linearGradient>
           </defs>
           <rect x="130" y="44" width="60" height="82" rx="8" fill="#cfc8bb" opacity="0.85" />

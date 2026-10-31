@@ -37,7 +37,7 @@ const blank: Product = {
   featured: false,
   bestseller: false,
   published: true,
-  art: { variant: "flacon", liquid: "#b07b2e", label: "#12100d", cap: "gold" },
+  art: { variant: "flacon", liquid: "#8b0d1a", label: "#0b0b0b", cap: "gold" },
   createdAt: new Date().toISOString(),
 };
 

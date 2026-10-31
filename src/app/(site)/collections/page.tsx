@@ -28,12 +28,12 @@ export default async function CollectionsPage() {
             Every composition, <em className="serif-italic">in one place</em>
           </h1>
           <p className="lede" style={{ marginTop: 20 }}>
-            Fourteen scents across five collections. Filter by family or price — or start with the
-            Discovery Set if you would rather smell before you decide.
+            {products.length} scents across {collections.length} collections. Filter by family or price — or
+            start with the Discovery Set if you would rather smell before you decide.
           </p>
           <div className="pill-row" style={{ marginTop: 24 }}>
             {collections.map((c) => (
-              <Link key={c.id} href={`/collections/${c.slug}`} className="chip">
+              <Link key={c.id} href={`/collections/${c.slug}`} className="chip chip--link">
                 {c.title} <ArrowRight size={11} />
               </Link>
             ))}

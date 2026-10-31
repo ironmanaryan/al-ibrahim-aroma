@@ -1,45 +1,63 @@
 /**
  * Product photography.
  *
- * The house shoots its flacons, but this build ships with editorial photography rather than
- * invented packshots. Each composition is paired with a real photograph that matches its
- * family — rose, oud, amber, musk — and every card uses it consistently.
+ * Every composition in the house carries its own photograph — no image is used
+ * for two different products. Primary frames live in /images/products/<slug>.jpg,
+ * with a second "material" frame and a shared pair of atelier shots for the
+ * gallery. All photography is licensed stock (Pexels) / brand material.
  */
 
-const FAMILY_IMAGES: Record<string, string[]> = {
-  Oud: ["/images/atelier-gold.jpg", "/images/dark-texture.jpg"],
-  Floral: ["/images/roses-night.jpg", "/images/petals.jpg", "/images/rose-still.jpg"],
-  Fresh: ["/images/dark-texture.jpg", "/images/bouquet-dark.jpg"],
-  Amber: ["/images/atelier-gold.jpg", "/images/dried-roses.jpg"],
-  Musk: ["/images/dried-roses.jpg", "/images/rose-still.jpg"],
-  Woody: ["/images/bouquet-dark.jpg", "/images/dark-texture.jpg"],
-  Home: ["/images/bouquet-dark.jpg", "/images/dark-texture.jpg"],
-  Gifting: ["/images/dried-roses.jpg", "/images/petals.jpg"],
-  Discovery: ["/images/petals.jpg", "/images/bouquet-dark.jpg"],
+const PRIMARY: Record<string, string> = {
+  "oud-al-malik": "/images/products/oud-al-malik.jpg",
+  "rose-taifi": "/images/products/rose-taifi.jpg",
+  mitti: "/images/products/mitti.jpg",
+  "amber-noor": "/images/products/amber-noor.jpg",
+  "musk-al-haram": "/images/products/musk-al-haram.jpg",
+  "vetiver-monsoon": "/images/products/vetiver-monsoon.jpg",
+  "saffron-oudh": "/images/products/saffron-oudh.jpg",
+  "jasmine-zafran": "/images/products/jasmine-zafran.jpg",
+  "bakhoor-royale": "/images/products/bakhoor-royale.jpg",
+  "oud-room-mist": "/images/products/oud-room-mist.jpg",
+  "the-gilded-coffret": "/images/products/the-gilded-coffret.jpg",
+  "the-discovery-set": "/images/products/the-discovery-set.jpg",
+  "white-musk": "/images/products/white-musk.jpg",
+  "night-bloom": "/images/products/night-bloom.jpg",
+  "cambodian-oud": "/images/products/cambodian-oud.jpg",
+  "indian-oud": "/images/products/indian-oud.jpg",
+  "laotian-oud": "/images/products/laotian-oud.jpg",
+  "burmese-oud": "/images/products/burmese-oud.jpg",
+  "malaysian-oud": "/images/products/malaysian-oud.jpg",
+  "oud-library": "/images/products/oud-library.jpg",
 };
 
-const BY_SLUG: Record<string, string> = {
-  "oud-al-malik": "/images/atelier-gold.jpg",
-  "rose-taifi": "/images/roses-night.jpg",
-  mitti: "/images/dark-texture.jpg",
-  "amber-noor": "/images/atelier-gold.jpg",
-  "musk-al-haram": "/images/dried-roses.jpg",
-  "vetiver-monsoon": "/images/bouquet-dark.jpg",
-  "saffron-oudh": "/images/petals.jpg",
-  "jasmine-zafran": "/images/rose-still.jpg",
-  "bakhoor-royale": "/images/dark-texture.jpg",
-  "oud-room-mist": "/images/bouquet-dark.jpg",
-  "the-gilded-coffret": "/images/dried-roses.jpg",
-  "the-discovery-set": "/images/petals.jpg",
-  "white-musk": "/images/dried-roses.jpg",
-  "night-bloom": "/images/bouquet-dark.jpg",
-  "cambodian-oud": "/images/atelier-gold.jpg",
-  "indian-oud": "/images/dark-texture.jpg",
-  "laotian-oud": "/images/atelier-gold.jpg",
-  "burmese-oud": "/images/dark-texture.jpg",
-  "malaysian-oud": "/images/atelier-gold.jpg",
-  "oud-library": "/images/dark-texture.jpg",
+const MATERIAL: Record<string, string> = {
+  "oud-al-malik": "/images/products/oud-al-malik-material.jpg",
+  "rose-taifi": "/images/products/rose-taifi-material.jpg",
+  mitti: "/images/products/mitti-material.jpg",
+  "amber-noor": "/images/products/amber-noor-material.jpg",
+  "musk-al-haram": "/images/products/musk-al-haram-material.jpg",
+  "vetiver-monsoon": "/images/products/vetiver-monsoon-material.jpg",
+  "saffron-oudh": "/images/products/saffron-oudh-material.jpg",
+  "jasmine-zafran": "/images/products/jasmine-zafran-material.jpg",
+  "bakhoor-royale": "/images/products/bakhoor-royale-material.jpg",
+  "oud-room-mist": "/images/products/oud-room-mist-material.jpg",
+  "the-gilded-coffret": "/images/products/the-gilded-coffret-material.jpg",
+  "the-discovery-set": "/images/products/the-discovery-set-material.jpg",
+  "white-musk": "/images/products/white-musk-material.jpg",
+  "night-bloom": "/images/products/night-bloom-material.jpg",
+  "cambodian-oud": "/images/products/cambodian-oud-material.jpg",
+  "indian-oud": "/images/products/indian-oud-material.jpg",
+  "laotian-oud": "/images/products/laotian-oud-material.jpg",
+  "burmese-oud": "/images/products/burmese-oud-material.jpg",
+  "malaysian-oud": "/images/products/malaysian-oud-material.jpg",
+  "oud-library": "/images/products/oud-library-material.jpg",
 };
+
+/** Editorial atelier shots used as the closing frame of each gallery. */
+const HOUSE = ["/images/atelier-night.jpg", "/images/atelier-cream.jpg"];
+
+const POOL = Object.values(PRIMARY);
+const MATERIAL_POOL = Object.values(MATERIAL);
 
 function hash(input: string): number {
   let n = 0;
@@ -47,22 +65,19 @@ function hash(input: string): number {
   return n;
 }
 
-export function productImage(slug: string, family?: string): string {
-  if (BY_SLUG[slug]) return BY_SLUG[slug];
-  const pool = (family && FAMILY_IMAGES[family]) || FAMILY_IMAGES.Oud;
-  return pool[hash(slug) % pool.length];
+export function productImage(slug: string, _family?: string): string {
+  if (PRIMARY[slug]) return PRIMARY[slug];
+  return POOL[hash(slug) % POOL.length];
 }
 
 /** Three gallery frames for the product page: the scent, its material, the house. */
-export function productGallery(slug: string, family?: string): { src: string; label: string }[] {
-  const primary = productImage(slug, family);
-  const pool = Object.values(FAMILY_IMAGES).flat();
-  const secondary = pool[(hash(slug) + 3) % pool.length];
-  const third = "/images/atelier-gold.jpg";
-  const slides = [
+export function productGallery(slug: string, _family?: string): { src: string; label: string }[] {
+  const primary = productImage(slug);
+  const material = MATERIAL[slug] ?? MATERIAL_POOL[hash(slug) % MATERIAL_POOL.length];
+  const house = HOUSE[hash(slug) % HOUSE.length];
+  return [
     { src: primary, label: "The composition" },
-    { src: secondary === primary ? "/images/petals.jpg" : secondary, label: "The material" },
-    { src: third === primary ? "/images/dried-roses.jpg" : third, label: "The house" },
+    { src: material, label: "The material" },
+    { src: house, label: "The house" },
   ];
-  return slides;
 }

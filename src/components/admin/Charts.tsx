@@ -43,7 +43,7 @@ export function AreaChart({
       <path d={area} fill="url(#areaFill)" />
       <path d={line} fill="none" stroke="#8b0d1a" strokeWidth="2" strokeLinecap="round" />
       {xy.map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r="2.6" fill="#fffdf9" stroke="#8b0d1a" strokeWidth="1.6" />
+        <circle key={i} cx={x} cy={y} r="2.6" fill="#f5f2ed" stroke="#8b0d1a" strokeWidth="1.6" />
       ))}
       {points.map((p, i) =>
         i % Math.ceil(points.length / 7) === 0 || i === points.length - 1 ? (

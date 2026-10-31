@@ -10,9 +10,9 @@
   --a-line: #e3ded4;
   --a-gold: #8b0d1a;
   --a-gold-soft: #d9a7aa;
-  --a-green: #2a6b4a;
+  --a-green: #4a443c;
   --a-red: #8b0d1a;
-  --a-blue: #44546a;
+  --a-blue: #4a443c;
 }
 
 /* the storefront's grain and ambient glows belong to the dark site only */
@@ -226,8 +226,8 @@ body:has(.admin) .ambient {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--a-green);
-  box-shadow: 0 0 0 3px rgba(47, 107, 79, 0.15);
+  background: var(--a-gold);
+  box-shadow: 0 0 0 3px rgba(139, 13, 26, 0.14);
 }
 
 .admin-menu {
@@ -570,8 +570,8 @@ body:has(.admin) .ambient {
 
 .status-pill[data-status="new"] {
   color: var(--a-blue);
-  background: rgba(53, 88, 110, 0.08);
-  border-color: rgba(53, 88, 110, 0.2);
+  background: rgba(74, 68, 60, 0.08);
+  border-color: rgba(74, 68, 60, 0.2);
 }
 
 .status-pill[data-status="contacted"] {
@@ -587,9 +587,9 @@ body:has(.admin) .ambient {
 }
 
 .status-pill[data-status="closed"] {
-  color: var(--a-green);
-  background: rgba(47, 107, 79, 0.08);
-  border-color: rgba(47, 107, 79, 0.22);
+  color: var(--a-muted);
+  background: rgba(74, 68, 60, 0.06);
+  border-color: rgba(74, 68, 60, 0.18);
 }
 
 .admin-toolbar {
@@ -1290,22 +1290,22 @@ body:has(.admin) .ambient {
 }
 
 .activity-dot[data-kind="lead"] {
-  background: rgba(47, 107, 79, 0.12);
-  color: var(--a-green);
+  background: rgba(139, 13, 26, 0.08);
+  color: var(--a-gold);
 }
 
 .activity-dot[data-kind="newsletter"] {
-  background: rgba(53, 88, 110, 0.12);
-  color: var(--a-blue);
+  background: rgba(74, 68, 60, 0.1);
+  color: var(--a-muted);
 }
 
 .activity-dot[data-kind="whatsapp"] {
-  background: rgba(47, 107, 79, 0.14);
-  color: #2f6b4f;
+  background: rgba(139, 13, 26, 0.1);
+  color: var(--a-gold);
 }
 
 .activity-dot[data-kind="admin"] {
-  background: rgba(24, 54, 48, 0.1);
+  background: rgba(11, 11, 11, 0.07);
   color: var(--a-ink);
 }
 

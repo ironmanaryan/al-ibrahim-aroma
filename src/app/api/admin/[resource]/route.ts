@@ -118,7 +118,7 @@ export async function POST(
     item.intensity = Number(body.intensity ?? 3);
     item.featured = Boolean(body.featured);
     item.bestseller = Boolean(body.bestseller);
-    item.art = body.art ?? { variant: "flacon", liquid: "#b07b2e", label: "#12100d", cap: "gold" };
+    item.art = body.art ?? { variant: "flacon", liquid: "#8b0d1a", label: "#0b0b0b", cap: "gold" };
     item.category = body.category ?? "Perfume";
     item.family = body.family ?? "Oud";
     item.longevity = body.longevity ?? "6–8 hours";

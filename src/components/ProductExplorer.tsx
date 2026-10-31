@@ -27,7 +27,8 @@ export default function ProductExplorer({
   const [category, setCategory] = useState(initialCategory);
   const [family, setFamily] = useState("All");
   const [sort, setSort] = useState("featured");
-  const [maxPrice, setMaxPrice] = useState(4000);
+  const ceiling = Math.max(4000, ...products.map((p) => p.price));
+  const [maxPrice, setMaxPrice] = useState(ceiling);
   const [quick, setQuick] = useState<Product | null>(null);
 
   const categories = useMemo(
@@ -123,7 +124,7 @@ export default function ProductExplorer({
                 className="range"
                 type="range"
                 min={500}
-                max={4000}
+                max={ceiling}
                 step={50}
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(Number(e.target.value))}
@@ -150,7 +151,7 @@ export default function ProductExplorer({
               onClick={() => {
                 setCategory("All");
                 setFamily("All");
-                setMaxPrice(4000);
+                setMaxPrice(ceiling);
                 setSort("featured");
               }}
             >
@@ -179,7 +180,7 @@ export default function ProductExplorer({
                 onClick={() => {
                   setCategory("All");
                   setFamily("All");
-                  setMaxPrice(4000);
+                  setMaxPrice(ceiling);
                 }}
               >
                 Clear filters

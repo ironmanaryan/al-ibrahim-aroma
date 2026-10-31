@@ -100,7 +100,7 @@ export default function MediaAdmin({ initial }: { initial: MediaItem[] }) {
         style={{
           marginBottom: 20,
           borderColor: dragging ? "var(--a-gold)" : undefined,
-          background: dragging ? "#fdfaf3" : undefined,
+          background: dragging ? "#ffffff" : undefined,
         }}
         onClick={() => inputRef.current?.click()}
         onDragOver={(e) => {

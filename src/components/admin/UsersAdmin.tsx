@@ -154,8 +154,8 @@ export default function UsersAdmin({
                   borderRadius: "50%",
                   display: "grid",
                   placeItems: "center",
-                  background: "rgba(30,90,120,.08)",
-                  color: "#2f6b85",
+                  background: "rgba(139,13,26,.08)",
+                  color: "#8b0d1a",
                   flex: "none",
                 }}
               >
