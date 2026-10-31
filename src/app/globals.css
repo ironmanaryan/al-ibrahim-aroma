@@ -3951,6 +3951,12 @@ img {
 
 .pdp__stage img {
   object-fit: cover;
+  filter: saturate(0.86) contrast(1.06) brightness(0.93);
+}
+
+.quickview__art img,
+.pdp__thumb img {
+  filter: saturate(0.86) contrast(1.05) brightness(0.94);
 }
 
 .pdp__stage-label {
