@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import type { Product, Settings } from "@/lib/types";
 import { formatINR, whatsappUrl } from "@/lib/utils";
 import { useCart } from "./CartProvider";
@@ -14,11 +15,31 @@ export default function ProductBuy({
   product: Product;
   settings: Settings;
 }) {
-  const { add } = useCart();
+  const { add, close } = useCart();
   const { notify } = useToast();
+  const router = useRouter();
   const [sizeIndex, setSizeIndex] = useState(0);
   const [qty, setQty] = useState(1);
   const size = product.sizes[sizeIndex] ?? product.sizes[0];
+  const lowStock = product.stock > 0 && product.stock < 15;
+
+  function addToBag(thenCheckout = false) {
+    add({
+      key: `${product.id}-${size.ml}`,
+      productId: product.id,
+      slug: product.slug,
+      name: product.name,
+      size: size.ml,
+      price: size.price,
+      qty,
+      art: product.art,
+    });
+    notify(`${product.name} added to your bag`);
+    if (thenCheckout) {
+      close();
+      router.push("/checkout");
+    }
+  }
 
   const message = `Hello Al Ibrahim Aroma, I would like to order:\n${product.name} — ${size.ml}ml × ${qty} — ${formatINR(
     size.price * qty,
@@ -50,6 +71,15 @@ export default function ProductBuy({
         </div>
       </div>
 
+      {lowStock ? (
+        <div className="low-stock">
+          <span>Only {product.stock} left in this batch</span>
+          <div className="low-stock__bar">
+            <i style={{ width: `${Math.max(8, Math.min(100, (product.stock / 15) * 100))}%` }} />
+          </div>
+        </div>
+      ) : null}
+
       <div className="pdp__buy">
         <div className="qty" style={{ marginTop: 0, minHeight: 48, padding: "0 6px" }}>
           <button onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease quantity">
@@ -60,23 +90,11 @@ export default function ProductBuy({
             <Plus size={13} />
           </button>
         </div>
-        <button
-          className="btn btn--gold"
-          onClick={() => {
-            add({
-              key: `${product.id}-${size.ml}`,
-              productId: product.id,
-              slug: product.slug,
-              name: product.name,
-              size: size.ml,
-              price: size.price,
-              qty,
-              art: product.art,
-            });
-            notify(`${product.name} added to your bag`);
-          }}
-        >
+        <button className="btn btn--gold" onClick={() => addToBag()}>
           <Bag size={15} /> Add to bag · {formatINR(size.price * qty)}
+        </button>
+        <button className="btn btn--line" onClick={() => addToBag(true)}>
+          Buy now
         </button>
         <a
           className="btn btn--line"
@@ -86,6 +104,18 @@ export default function ProductBuy({
         >
           <Whatsapp size={15} /> Order on WhatsApp
         </a>
+      </div>
+
+      <div className="payment-strip">
+        <span>Secure payment</span>
+        <span className="pay-badge">UPI</span>
+        <span className="pay-badge">Visa</span>
+        <span className="pay-badge">Mastercard</span>
+        <span className="pay-badge">RuPay</span>
+        <span className="pay-badge">COD</span>
+        <span style={{ marginLeft: "auto", letterSpacing: "0.04em" }}>
+          7-day returns on unopened bottles
+        </span>
       </div>
 
       <div className="pdp__assure">

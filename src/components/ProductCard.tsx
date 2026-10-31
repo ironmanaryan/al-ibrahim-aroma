@@ -5,7 +5,7 @@ import { useState } from "react";
 import type { Product } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
 import Image from "next/image";
-import { productImage } from "@/lib/productImage";
+import { productGallery, productImage } from "@/lib/productImage";
 import { ArrowRight, Bag, Close, Eye, Star } from "./icons";
 import { useCart } from "./CartProvider";
 import { useToast } from "./Toast";
@@ -31,6 +31,7 @@ export default function ProductCard({
   const { add } = useCart();
   const { notify } = useToast();
   const size = product.sizes[0];
+  const alt = productGallery(product.slug, product.family)[1];
 
   function addToBag() {
     add({
@@ -54,6 +55,14 @@ export default function ProductCard({
           className="card__photo"
           src={productImage(product.slug, product.family)}
           alt={product.name}
+          fill
+          sizes="(max-width: 640px) 50vw, (max-width: 1080px) 33vw, 25vw"
+        />
+        <Image
+          className="card__photo card__photo--alt"
+          src={alt.src}
+          alt=""
+          aria-hidden="true"
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1080px) 33vw, 25vw"
         />

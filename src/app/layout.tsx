@@ -2,11 +2,18 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const signika = localFont({
-  src: [{ path: "./fonts/signika-latin.woff2", weight: "300 700", style: "normal" }],
-  variable: "--font-signika",
+const syne = localFont({
+  src: [{ path: "./fonts/syne-700-latin.woff2", weight: "700", style: "normal" }],
+  variable: "--font-syne",
   display: "swap",
-  fallback: ["Signika", "system-ui", "sans-serif"],
+  fallback: ["Syne", "system-ui", "sans-serif"],
+});
+
+const jakarta = localFont({
+  src: [{ path: "./fonts/plus-jakarta-sans-latin.woff2", weight: "400 700", style: "normal" }],
+  variable: "--font-jakarta",
+  display: "swap",
+  fallback: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://al-ibrahim-aroma.vercel.app";
@@ -57,14 +64,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b0b0b",
+  themeColor: "#0B0B0B",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={signika.variable}>
+    <html lang="en" className={`${syne.variable} ${jakarta.variable}`}>
       <body>
         <div className="grain" aria-hidden="true" />
         <div className="ambient" aria-hidden="true" />

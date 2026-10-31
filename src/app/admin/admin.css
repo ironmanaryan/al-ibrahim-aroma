@@ -1396,3 +1396,9 @@ body:has(.admin) .ambient {
 .admin-thumb img {
   object-fit: cover;
 }
+
+/* the admin UI runs on the storefront's text face */
+.admin {
+  --font-display: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
+}

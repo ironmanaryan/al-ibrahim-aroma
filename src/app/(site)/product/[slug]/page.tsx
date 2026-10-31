@@ -7,8 +7,11 @@ import ProductBuy from "@/components/ProductBuy";
 import ProductGallery from "@/components/ProductGallery";
 import ProductCard from "@/components/ProductCard";
 import Accordion from "@/components/Accordion";
+import PincodeCheck from "@/components/PincodeCheck";
+import StickyBuy from "@/components/StickyBuy";
+import RecentlyViewed from "@/components/RecentlyViewed";
 import { Stars } from "@/components/ProductCard";
-import { Gift, Leaf, Shield, Star, Truck } from "@/components/icons";
+import { Gift, Leaf, Shield, Sparkles, Star, Truck } from "@/components/icons";
 
 export async function generateStaticParams() {
   const products = await getProducts();
@@ -33,6 +36,19 @@ export async function generateMetadata({
       type: "website",
     },
   };
+}
+
+function longevityPercent(longevity: string) {
+  const hours = Number(longevity.match(/\d+/)?.[0] ?? 8);
+  return Math.max(18, Math.min(100, Math.round((hours / 12) * 100)));
+}
+
+function sillagePercent(sillage: string) {
+  const key = sillage.toLowerCase();
+  if (key.includes("room") || key.includes("strong")) return 92;
+  if (key.includes("moderate")) return 64;
+  if (key.includes("soft") || key.includes("intimate")) return 38;
+  return 58;
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -102,56 +118,92 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
             <ProductBuy product={product} settings={settings} />
 
-            <div className="specs">
-              <div>
-                <span>Longevity</span>
-                <strong style={{ fontSize: 15 }}>{product.longevity}</strong>
-              </div>
-              <div>
-                <span>Sillage</span>
-                <strong style={{ fontSize: 15 }}>{product.sillage}</strong>
-              </div>
-              <div>
-                <span>Intensity</span>
-                <span className="intensity" style={{ marginTop: 6 }}>
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <i key={i} data-on={i <= product.intensity} />
+            <div className="notes-pyramid" data-reveal>
+              <div className="note-tier" data-tier="top">
+                <span className="note-tier__icon">
+                  <Sparkles size={16} />
+                </span>
+                <span className="note-tier__label">
+                  <strong>Top notes</strong>
+                  <span>The opening, first 20 minutes</span>
+                </span>
+                <span className="note-tier__tags">
+                  {product.notes.top.map((n) => (
+                    <span key={n}>{n}</span>
                   ))}
                 </span>
+              </div>
+              <div className="note-tier" data-tier="heart">
+                <span className="note-tier__icon">
+                  <Leaf size={16} />
+                </span>
+                <span className="note-tier__label">
+                  <strong>Heart notes</strong>
+                  <span>The body, hours two to five</span>
+                </span>
+                <span className="note-tier__tags">
+                  {product.notes.heart.map((n) => (
+                    <span key={n}>{n}</span>
+                  ))}
+                </span>
+              </div>
+              <div className="note-tier" data-tier="base">
+                <span className="note-tier__icon">
+                  <Shield size={16} />
+                </span>
+                <span className="note-tier__label">
+                  <strong>Base notes</strong>
+                  <span>What stays on skin and cloth</span>
+                </span>
+                <span className="note-tier__tags">
+                  {product.notes.base.map((n) => (
+                    <span key={n}>{n}</span>
+                  ))}
+                </span>
+              </div>
+            </div>
+
+            <div className="meters" data-reveal>
+              <div className="meter__row">
+                <div className="meter__head">
+                  <span>Longevity</span>
+                  <strong>{product.longevity}</strong>
+                </div>
+                <div className="meter__track">
+                  <i className="meter__fill" style={{ width: `${longevityPercent(product.longevity)}%` }} />
+                </div>
+              </div>
+              <div className="meter__row">
+                <div className="meter__head">
+                  <span>Sillage</span>
+                  <strong>{product.sillage}</strong>
+                </div>
+                <div className="meter__track">
+                  <i className="meter__fill" style={{ width: `${sillagePercent(product.sillage)}%` }} />
+                </div>
+              </div>
+              <div className="meter__row">
+                <div className="meter__head">
+                  <span>Intensity</span>
+                  <strong>{product.intensity} / 5</strong>
+                </div>
+                <div className="meter__track">
+                  <i className="meter__fill" style={{ width: `${(product.intensity / 5) * 100}%` }} />
+                </div>
               </div>
             </div>
 
             <Accordion
               items={[
                 {
-                  title: "The composition",
+                  title: "Ingredients",
                   content: (
-                    <div className="notes" style={{ border: 0 }}>
-                      <div className="note-col" style={{ padding: "0 16px 0 0" }}>
-                        <h4>Top</h4>
-                        <ul>
-                          {product.notes.top.map((n) => (
-                            <li key={n}>{n}</li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="note-col" style={{ padding: "0 16px" }}>
-                        <h4>Heart</h4>
-                        <ul>
-                          {product.notes.heart.map((n) => (
-                            <li key={n}>{n}</li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="note-col" style={{ padding: "0 0 0 16px" }}>
-                        <h4>Base</h4>
-                        <ul>
-                          {product.notes.base.map((n) => (
-                            <li key={n}>{n}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
+                    <p>
+                      {product.notes.top.join(", ")} at the open; {product.notes.heart.join(", ")} through
+                      the heart; {product.notes.base.join(", ")} at the base. Natural absolutes and
+                      essential oils in a base of perfumer&rsquo;s alcohol or sandalwood oil for attars —
+                      no phthalates, no synthetic fixatives, nothing to make it shout.
+                    </p>
                   ),
                 },
                 { title: "The story", content: <p>{product.story}</p> },
@@ -166,7 +218,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                   ),
                 },
                 {
-                  title: "Shipping & care",
+                  title: "Shipping & returns",
                   content: (
                     <p>
                       Dispatched within 24 hours from Lucknow. Free shipping above{" "}
@@ -177,6 +229,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 },
               ]}
             />
+
+            <PincodeCheck />
 
             <div className="pdp__assure" style={{ borderBottom: 0 }}>
               <div>
@@ -211,7 +265,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <div className="quotes">
               {reviews.map((r) => (
                 <article className="quote-card" key={r.id}>
-                  <p className="quote-card__text">“{r.quote}”</p>
+                  <p className="quote-card__text">&ldquo;{r.quote}&rdquo;</p>
                   <div className="quote-card__who">
                     <span className="avatar">{r.name.slice(0, 1)}</span>
                     <div>
@@ -230,14 +284,14 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div className="container">
           <div className="section__head">
             <div className="section__head-copy">
-              <span className="eyebrow">You may also like</span>
+              <span className="eyebrow">Pairs well with</span>
               <h2 className="section__title">Compositions nearby</h2>
             </div>
             <Link href="/collections" className="link-underline">
               All fragrances
             </Link>
           </div>
-          <div className="product-grid">
+          <div className="scroll-x">
             {related.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
@@ -245,6 +299,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
+      <RecentlyViewed products={all} current={product.slug} />
+      <StickyBuy product={product} />
     </>
   );
 }

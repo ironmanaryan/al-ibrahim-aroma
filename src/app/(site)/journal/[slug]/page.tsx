@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getJournal, getPost } from "@/lib/content";
@@ -31,6 +32,16 @@ export async function generateMetadata({
     },
   };
 }
+
+const postPhoto = (index: number) =>
+  [
+    "/images/dried-roses.jpg",
+    "/images/bouquet-dark.jpg",
+    "/images/rose-still.jpg",
+    "/images/petals.jpg",
+    "/images/atelier-cream.jpg",
+    "/images/atelier-night.jpg",
+  ][index % 6];
 
 function inline(text: string) {
   return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
@@ -103,7 +114,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
         <div className="container" style={{ maxWidth: 880 }}>
           <div className="post-cover">
-            <span>{post.category === "Craft" ? "❖" : post.category === "Guides" ? "✦" : "✺"}</span>
+            <Image
+              src={postPhoto(post.category === "Craft" ? 0 : post.category === "Guides" ? 1 : 2)}
+              alt=""
+              fill
+              sizes="(max-width: 880px) 100vw, 880px"
+              priority
+            />
           </div>
           <div className="prose" style={{ margin: "clamp(30px, 5vw, 56px) auto" }}>
             {renderBody(post.body)}
@@ -126,10 +143,15 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </div>
           </div>
           <div className="journal-grid">
-            {more.map((p) => (
+            {more.map((p, index) => (
               <Link href={`/journal/${p.slug}`} className="post-card" key={p.id}>
                 <div className="post-card__media">
-                  <span>✦</span>
+                  <Image
+                    src={postPhoto(index + 3)}
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                  />
                 </div>
                 <div className="post-card__body">
                   <div className="post-card__meta">

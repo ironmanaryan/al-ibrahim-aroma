@@ -7,6 +7,8 @@ import AnnouncementBar from "@/components/AnnouncementBar";
 import CartDrawer from "@/components/CartDrawer";
 import WhatsAppFab from "@/components/WhatsAppFab";
 import MotionProvider from "@/components/MotionProvider";
+import SmoothScroll from "@/components/SmoothScroll";
+import Preloader from "@/components/Preloader";
 import Analytics from "@/components/Analytics";
 
 export const revalidate = 300;
@@ -31,6 +33,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
   return (
     <CartProvider>
       <ToastProvider>
+        <Preloader />
         <AnnouncementBar items={settings.announcement} />
         <Header settings={settings} collections={collections} products={searchable} />
         <main>{children}</main>
@@ -38,6 +41,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         <WhatsAppFab settings={settings} />
         <CartDrawer settings={settings} />
         <MotionProvider />
+        <SmoothScroll />
         <Analytics />
       </ToastProvider>
     </CartProvider>

@@ -1,9 +1,20 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { getJournal } from "@/lib/content";
 import { formatDate } from "@/lib/utils";
 import NewsletterForm from "@/components/NewsletterForm";
 import { ArrowRight } from "@/components/icons";
+
+const postPhoto = (index: number) =>
+  [
+    "/images/dried-roses.jpg",
+    "/images/bouquet-dark.jpg",
+    "/images/rose-still.jpg",
+    "/images/petals.jpg",
+    "/images/atelier-cream.jpg",
+    "/images/atelier-night.jpg",
+  ][index % 6];
 
 export const metadata: Metadata = {
   title: "Journal",
@@ -41,7 +52,7 @@ export default async function JournalPage() {
           <div className="container">
             <Link href={`/journal/${lead.slug}`} className="post-feature">
               <div className="post-feature__media">
-                <span>{lead.category === "Craft" ? "❖" : "✦"}</span>
+                <Image src={postPhoto(0)} alt="" fill sizes="(max-width: 860px) 100vw, 50vw" priority />
                 <div className="post-feature__tag">{lead.category}</div>
               </div>
               <div className="post-feature__body">
@@ -66,10 +77,15 @@ export default async function JournalPage() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <div className="journal-grid">
-            {rest.map((post) => (
+            {rest.map((post, index) => (
               <Link href={`/journal/${post.slug}`} className="post-card" key={post.id}>
                 <div className="post-card__media">
-                  <span>{post.category === "Craft" ? "❖" : post.category === "Guides" ? "✦" : "✺"}</span>
+                  <Image
+                    src={postPhoto(index + 1)}
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                  />
                 </div>
                 <div className="post-card__body">
                   <div className="post-card__meta">

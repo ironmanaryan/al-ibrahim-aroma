@@ -7,7 +7,7 @@ export default function NotFound() {
       <div className="container" style={{ textAlign: "center", display: "grid", gap: 18, justifyItems: "center" }}>
         <span className="eyebrow">404 · off the map</span>
         <h1 className="display" style={{ fontSize: "clamp(44px, 8vw, 92px)" }}>
-          This scent has <em>drifted</em>
+          This scent has <em>evaporated</em>
         </h1>
         <p className="lede" style={{ textAlign: "center" }}>
           The page you were looking for is not in the house. It may have sold out, moved, or never existed
