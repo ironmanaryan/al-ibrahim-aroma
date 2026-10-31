@@ -12,7 +12,7 @@ export default function Preloader() {
       return;
     }
     setPhase("shown");
-    const leave = setTimeout(() => setPhase("leaving"), 1500);
+    const leave = setTimeout(() => setPhase("leaving"), 1000);
     const done = setTimeout(() => {
       setPhase("hidden");
       try {
@@ -20,7 +20,7 @@ export default function Preloader() {
       } catch {
         /* ignore */
       }
-    }, 2200);
+    }, 1600);
     return () => {
       clearTimeout(leave);
       clearTimeout(done);

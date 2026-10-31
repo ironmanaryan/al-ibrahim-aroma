@@ -20,6 +20,7 @@ export default function MotionProvider() {
       ]);
       if (cancelled) return;
       gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.config({ ignoreMobileResize: true });
 
       ctx = gsap.context(() => {
         gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {

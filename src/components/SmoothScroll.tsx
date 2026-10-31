@@ -5,6 +5,8 @@ import { useEffect } from "react";
 export default function SmoothScroll() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // native touch scrolling is smoother and cheaper than a RAF-driven lerp on phones
+    if (window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
 
     let lenis: { raf: (time: number) => void; destroy: () => void } | undefined;
     let frame = 0;

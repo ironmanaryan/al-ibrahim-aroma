@@ -7,6 +7,7 @@ import type { Collection, Product, Settings } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
 import { useCart } from "./CartProvider";
 import { Bag, ChevronDown, Close, Menu, Search, Whatsapp } from "./icons";
+import ThemeToggle from "./ThemeToggle";
 import Image from "next/image";
 import { productImage } from "@/lib/productImage";
 
@@ -142,6 +143,7 @@ export default function Header({ settings, collections, products }: HeaderProps)
           </nav>
 
           <div className="header__actions">
+            <ThemeToggle />
             <button
               className="icon-btn"
               aria-label="Search"

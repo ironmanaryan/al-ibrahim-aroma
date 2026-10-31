@@ -69,9 +69,18 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const themeScript = `(function(){try{if(localStorage.getItem("aia_theme")==="light"){document.documentElement.dataset.theme="light";var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content","#F3EFE8");}}catch(e){}})();`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${syne.variable} ${jakarta.variable}`}>
+    <html
+      lang="en"
+      className={`${syne.variable} ${jakarta.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
         <div className="grain" aria-hidden="true" />
         <div className="ambient" aria-hidden="true" />
